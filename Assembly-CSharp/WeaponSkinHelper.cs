@@ -1730,60 +1730,9 @@ public static class WeaponSkinHelper
 	private static readonly Dictionary<int, Texture2D> _skinCache = new Dictionary<int, Texture2D>();
 	private static readonly Dictionary<int, Texture2D> _iconCache = new Dictionary<int, Texture2D>();
 
-	/// <summary>
-	/// Folder holding the skin PNGs, relative to <c>UberStrike_Data</c>.
-	/// Distributed through the patcher's Entry.txt like any other game file.
-	/// </summary>
-	public const string SkinFolder = "Skins";
-
-	/// <summary>Prefix for the embedded resource names, set via LogicalName in the csproj.</summary>
 	private const string ResourcePrefix = "WeaponSkins.";
 
-	/// <summary>Absolute path of a skin file, for logging and for the patcher's manifest.</summary>
-	public static string SkinPath(string fileName)
-	{
-		// Application.dataPath is "<install>/UberStrike_Data" for a Windows player.
-		return Path.Combine(Path.Combine(Application.dataPath, SkinFolder), fileName);
-	}
-
-	// ------------------------------------------------------------------ byte sources
-
-	/// <summary>
-	/// Read a skin file: loose file on disk first, then the copy embedded in this assembly.
-	/// Returns null if neither exists.
-	///
-	/// Both paths are needed and they are not redundant.
-	///
-	/// The embedded copy is what makes "clone, compile, run" work with no deployment step.
-	/// Shipping only the DLL was the defect behind "all skins PR doesn't work": the code
-	/// landed, the art did not, and a missing skin file is SILENT - the weapon simply renders
-	/// stock, which is indistinguishable from the patch not working at all.
-	///
-	/// The disk override still wins when present, which is what keeps the patcher useful:
-	/// art can be updated without re-shipping code, and Deploy-WeaponSkins.ps1 keeps working
-	/// exactly as before. It also means a build with the resources stripped
-	/// (-p:EmbedSkins=false) is still fully functional against a deployed Skins folder.
-	/// </summary>
-	private static byte[] ReadSkinBytes(string fileName)
-	{
-		string disk = SkinPath(fileName);
-		if (File.Exists(disk))
-		{
-			try
-			{
-				return File.ReadAllBytes(disk);
-			}
-			catch (Exception e)
-			{
-				// Fall through to the embedded copy rather than failing: a half-written or
-				// locked override should not break the skin.
-				Debug.LogWarning("WeaponSkinHelper: could not read override " + disk
-					+ " (" + e.Message + "); using the embedded copy.");
-			}
-		}
-		return ReadEmbedded(fileName);
-	}
-
+	// Skins load from embedded resources only. No disk/folder fallback.
 	private static byte[] ReadEmbedded(string fileName)
 	{
 		string resource = ResourcePrefix + fileName;
@@ -1823,21 +1772,8 @@ public static class WeaponSkinHelper
 		}
 	}
 
-	/// <summary>
-	/// Load a skin texture, from a loose file if one is deployed and from the embedded copy
-	/// otherwise. See ReadSkinBytes for why both exist.
-	///
-	/// The art was embedded once before and removed, because a plain EmbeddedResource list took
-	/// Assembly-CSharp.dll from 1.4 MB to 51 MB - 97 percent of the file was PNG - so every
-	/// code-only fix re-shipped 50 MB of art. That objection is answered here by the
-	/// EmbedSkins property rather than by dropping the resources: build with
-	/// -p:EmbedSkins=false and the assembly is code-only at ~1.4 MB, loading art from the
-	/// deployed Skins folder exactly as before. The default build embeds, so a fresh clone
-	/// compiles and runs with skins visible and no deployment step.
-	///
-	/// Texture2D.LoadImage handles PNG and JPEG on this client (Unity 4.6.5), and produces
-	/// a texture with mipmaps disabled, matching the previous embedded behaviour exactly.
-	/// </summary>
+	// JPEG colour + separate .alpha.png mask, or a single RGBA PNG. Texture2D.LoadImage
+	// handles PNG/JPEG on Unity 4.6.5, mipmaps off.
 	private static Texture2D LoadSkinFile(string fileName)
 	{
 		// Preferred layout: colour as JPEG, specular mask as a separate lossless PNG.
@@ -1858,14 +1794,14 @@ public static class WeaponSkinHelper
 		string jpegName = stem + ".jpg";
 		string maskName = stem + ".alpha.png";
 
-		byte[] colourBytes = ReadSkinBytes(jpegName);
+		byte[] colourBytes = ReadEmbedded(jpegName);
 		if (colourBytes != null)
 		{
 			Texture2D colour = DecodeTexture(colourBytes, jpegName);
 			if (colour == null)
 				return null;
 
-			byte[] maskBytes = ReadSkinBytes(maskName);
+			byte[] maskBytes = ReadEmbedded(maskName);
 			if (maskBytes == null)
 				return colour; // colour-only skin, e.g. one with no specular mask
 
@@ -1906,11 +1842,10 @@ public static class WeaponSkinHelper
 			return merged;
 		}
 
-		byte[] single = ReadSkinBytes(fileName);
+		byte[] single = ReadEmbedded(fileName);
 		if (single == null)
 		{
-			Debug.LogError("WeaponSkinHelper: skin file not found on disk (" + SkinPath(fileName)
-				+ ") and not embedded as \"" + ResourcePrefix + fileName + "\"");
+			Debug.LogError("WeaponSkinHelper: skin not embedded as \"" + ResourcePrefix + fileName + "\"");
 			return null;
 		}
 		return DecodeTexture(single, fileName);

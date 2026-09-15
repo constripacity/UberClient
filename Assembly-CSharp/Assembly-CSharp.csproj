@@ -799,23 +799,8 @@
       <Name>Assembly-CSharp-firstpass</Name>
     </ProjectReference>
   </ItemGroup>
-  <!-- Skin art.
-
-       Embedded so that a fresh clone compiles and runs with the skins visible, with no
-       deployment step. Shipping the DLL alone was the defect behind "all skins PR does not
-       work": the code arrived, the art did not, and a missing skin file is silent - the
-       weapon renders stock, which looks exactly like a broken patch.
-
-       WeaponSkinHelper checks UberStrike_Data/Skins/ FIRST, so a deployed loose file still
-       overrides the embedded copy and the patcher path is unchanged.
-
-       Embedding all of it once took this assembly to 51 MB, so every code-only fix
-       re-shipped the art. Build with -p:EmbedSkins=false for a code-only ~1.4 MB assembly
-       that loads art from the deployed folder instead. -->
-  <PropertyGroup>
-    <EmbedSkins Condition=" '$(EmbedSkins)' == '' ">true</EmbedSkins>
-  </PropertyGroup>
-  <ItemGroup Condition=" '$(EmbedSkins)' == 'true' ">
+  <!-- Skin art. Embedded resources are the only load path. -->
+  <ItemGroup>
     <EmbeddedResource Include="WeaponSkins\9007_PlasmaBat.jpg">
       <LogicalName>WeaponSkins.9007_PlasmaBat.jpg</LogicalName>
     </EmbeddedResource>
