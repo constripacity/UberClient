@@ -11,11 +11,11 @@
 // Item ID -> base weapon mapping (from unity_2022_tg/skin-framework commit 850893ee).
 // Keep this list complete: it went stale once at 2015-2018 and again at 2021, which makes it
 // look authoritative while being wrong.
-//   2010 Plasma Bat        (base 1000 TheSplatbat)
-//   2011 Inferno MG        (base 1002 MachineGun)
-//   2012 Cryo Strike       (base 1004 PaintSniper)
-//   2013 Solar Cannon      (base 1005 Cannon)
-//   2014 Hazardous Shotgun (was Natural Shotgun)   (base 1003 PaintShotty)   -- renamed from Toxic Splatter 2026-08-12
+//   2011 Plasma Bat        (base 1000 TheSplatbat)
+//   2012 Inferno MG        (base 1002 MachineGun)
+//   2013 Cryo Strike       (base 1004 PaintSniper)
+//   2014 Solar Cannon      (base 1005 Cannon)
+//   2010 Hazardous Shotgun (was Natural Shotgun)   (base 1003 PaintShotty)   -- renamed from Toxic Splatter 2026-08-12
 //   2015 Void Amethyst     (base 1004 PaintSniper)   -- also the only tracer override
 //   2016 Bloodhound        (base 1003 PaintShotty)
 //   2017 Abyssal Leviathan (base 1005 Cannon)
@@ -139,15 +139,15 @@ public static class WeaponSkinHelper
 	// itemId -> embedded resource name (LogicalName in the .csproj).
 	public static readonly Dictionary<int, string> SkinTextures = new Dictionary<int, string>
 	{
-		{ 2010, "2010_PlasmaBat.png" },
-		// 2011 repainted 2026-08-11 against the 4.7.1 MachineGun base, same as 2018.
+		{ 2011, "2011_PlasmaBat.png" },
+		// 2012 repainted 2026-08-11 against the 4.7.1 MachineGun base, same as 2018.
 		// It was parked on the theory that the texture was rotated on this client's mesh;
 		// that was wrong. The real cause was the UV layout, see the 2018 note below.
 		// Measures 4.1% unpainted at brightness 153.0.
-		{ 2011, "2011_InfernoMG.png" },
-		{ 2012, "2012_CryoStrike.png" },
-		{ 2013, "2013_SolarCannon.png" },
-		{ 2014, "2014_HazardousShotgun.png" },
+		{ 2012, "2012_InfernoMG.png" },
+		{ 2013, "2013_CryoStrike.png" },
+		{ 2014, "2014_SolarCannon.png" },
+		{ 2010, "2010_HazardousShotgun.png" },
 		// 2026-08-06 batch. Sniper, shotgun and cannon port cleanly to the 4.7.1
 		// meshes: like the four above, these are authored against the 4.3.8 base UV
 		// layouts, which measure 0.959 to 0.979 island recall against the meshes
@@ -159,7 +159,7 @@ public static class WeaponSkinHelper
 		// authored on the 4.3.8 texture, whose UV layout uses 47% of the sheet against
 		// 4.7.1's 87%, so it left ~37% of the mesh unpainted and rendered black in patches.
 		// The repaint measures 5.1% unpainted, in line with every skin that renders
-		// correctly (0.4% to 4.4%). 2011 above is the same fix applied to the other
+		// correctly (0.4% to 4.4%). 2012 above is the same fix applied to the other
 		// MachineGun skin, so both are now live.
 		{ 2018, "2018_NeonCircuit.png" },
 		// 2026-08-11. First two skins on PREMIUM base weapons rather than the five stock
@@ -334,7 +334,7 @@ public static class WeaponSkinHelper
 		// "Base (RGB) Gloss (A)" and the shader does o.Gloss = tex.a, so alpha is GLOSS, not
 		// transparency (contrast 2020 below, where the shader swap makes it transparency). Alpha
 		// says WHICH PANELS ARE POLISHED, the panels did not move, so neither did the mask.
-		// 2018's and 2011's masks are already byte-identical to each other for the same reason.
+		// 2018's and 2012's masks are already byte-identical to each other for the same reason.
 		{ 2037, "2037_NeonCircuitBlack.png" },
 	};
 
@@ -1400,11 +1400,11 @@ public static class WeaponSkinHelper
 	// 115 unambiguously directional stock icons do.
 	public static readonly Dictionary<int, string> IconTextures = new Dictionary<int, string>
 	{
-		{ 2010, "2010_PlasmaBat_Icon.png" },
-		{ 2011, "2011_InfernoMG_Icon.png" },
-		{ 2012, "2012_CryoStrike_Icon.png" },
-		{ 2013, "2013_SolarCannon_Icon.png" },
-		{ 2014, "2014_HazardousShotgun_Icon.png" },
+		{ 2011, "2011_PlasmaBat_Icon.png" },
+		{ 2012, "2012_InfernoMG_Icon.png" },
+		{ 2013, "2013_CryoStrike_Icon.png" },
+		{ 2014, "2014_SolarCannon_Icon.png" },
+		{ 2010, "2010_HazardousShotgun_Icon.png" },
 		{ 2015, "2015_VoidAmethyst_Icon.png" },
 		{ 2016, "2016_Bloodhound_Icon.png" },
 		{ 2017, "2017_AbyssalLeviathan_Icon.png" },
@@ -1471,7 +1471,7 @@ public static class WeaponSkinHelper
 		{ 2074, "2074_SplattergunPrismSplatter_Icon.png" },
 		{ 2075, "2075_LauncherDragonsMaw_Icon.png" },
 		// Framing inherited per BASE weapon, not chosen: each of these takes the camera of the
-		// shipped skin on the same weapon (2011 for the MG, 2015 sniper, 2016 shotgun, 2017
+		// shipped skin on the same weapon (2012 for the MG, 2015 sniper, 2016 shotgun, 2017
 		// cannon), which is what keeps a family of icons looking like a set. The stock icons
 		// work the same way -- silhouette overlap between variants of one weapon measures
 		// 0.957-0.979 IoU, i.e. one camera per weapon and only the texture changes.
@@ -1498,7 +1498,7 @@ public static class WeaponSkinHelper
 		// only ever caches a successful load.
 		//
 		// Framing is inherited per BASE weapon exactly as the [Watery]/[Frosted] rows above --
-		// 2011's camera for the MG, 2015's sniper, 2016's shotgun, 2017's cannon.
+		// 2012's camera for the MG, 2015's sniper, 2016's shotgun, 2017's cannon.
 		{ 2033, "2033_MGLava_Icon.png" },
 		{ 2034, "2034_SniperLava_Icon.png" },
 		{ 2035, "2035_ShotgunLava_Icon.png" },
@@ -1525,7 +1525,7 @@ public static class WeaponSkinHelper
 		// tools/render_premium_icons.py CALLS render_weapon_icon.render() rather than
 		// reimplementing it, and supplies 2018's manifest entry with 2037's texture. So the framing
 		// is inherited per BASE WEAPON exactly as every row above -- 2018's MachineGun camera, not
-		// 2011's, though their framing keys are identical, so that a future re-tune moves both Neon
+		// 2012's, though their framing keys are identical, so that a future re-tune moves both Neon
 		// Circuits together. The one value chosen rather than fetched is a LIGHTING lift: 2037's
 		// body measures mean luminance 30.6 against 2018's 133.1 on the same mesh at the same
 		// camera, close enough to the plate's own 27-34 that at 2018's rig only 75.8% of the
@@ -1665,7 +1665,7 @@ public static class WeaponSkinHelper
 		// its flash stays stock. Its light and any trail still tint. Do not "fix" this by adding
 		// MuzzleFlash to the include list -- that is commit 63a9776's regression, and the flash
 		// disappears entirely rather than turning blue.
-		{ 2012, new MuzzleTintSpec {   // Cryo Strike        (PaintSniper)
+		{ 2013, new MuzzleTintSpec {   // Cryo Strike        (PaintSniper)
 			HasLight = true, LightColour = new Color(0.45f, 0.72f, 1.00f, 1f),
 			HasParticles = true, ParticleTint = new Color(0.20f, 0.62f, 1.70f, 1f) } },
 		{ 2024, new MuzzleTintSpec {   // Icebreaker         (DeathHammer -- light + trail only)
@@ -1705,7 +1705,7 @@ public static class WeaponSkinHelper
 		// it becomes dangerous:
 		//
 		//   * SGMuzzleFlash.mat is referenced by FOUR prefabs, and one of them is the STOCK
-		//     ShotGun (PaintShotty, the base of skins 2014/2016/2027/2031/2035). A sharedMaterial
+		//     ShotGun (PaintShotty, the base of skins 2010/2016/2027/2031/2035). A sharedMaterial
 		//     write leaks blue onto every player's stock shotgun.
 		//
 		//   * A `.material` write reproduces a bug this file has already paid for twice. The

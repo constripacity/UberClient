@@ -801,47 +801,47 @@
   </ItemGroup>
   <!-- Skin art. Embedded resources are the only load path. -->
   <ItemGroup>
-    <EmbeddedResource Include="WeaponSkins\2010_PlasmaBat.jpg">
-      <LogicalName>WeaponSkins.2010_PlasmaBat.jpg</LogicalName>
+    <EmbeddedResource Include="WeaponSkins\2011_PlasmaBat.jpg">
+      <LogicalName>WeaponSkins.2011_PlasmaBat.jpg</LogicalName>
     </EmbeddedResource>
-    <EmbeddedResource Include="WeaponSkins\2010_PlasmaBat_Icon.png">
-      <LogicalName>WeaponSkins.2010_PlasmaBat_Icon.png</LogicalName>
+    <EmbeddedResource Include="WeaponSkins\2011_PlasmaBat_Icon.png">
+      <LogicalName>WeaponSkins.2011_PlasmaBat_Icon.png</LogicalName>
     </EmbeddedResource>
-    <EmbeddedResource Include="WeaponSkins\2011_InfernoMG.alpha.png">
-      <LogicalName>WeaponSkins.2011_InfernoMG.alpha.png</LogicalName>
+    <EmbeddedResource Include="WeaponSkins\2012_InfernoMG.alpha.png">
+      <LogicalName>WeaponSkins.2012_InfernoMG.alpha.png</LogicalName>
     </EmbeddedResource>
-    <EmbeddedResource Include="WeaponSkins\2011_InfernoMG.jpg">
-      <LogicalName>WeaponSkins.2011_InfernoMG.jpg</LogicalName>
+    <EmbeddedResource Include="WeaponSkins\2012_InfernoMG.jpg">
+      <LogicalName>WeaponSkins.2012_InfernoMG.jpg</LogicalName>
     </EmbeddedResource>
-    <EmbeddedResource Include="WeaponSkins\2011_InfernoMG_Icon.png">
-      <LogicalName>WeaponSkins.2011_InfernoMG_Icon.png</LogicalName>
+    <EmbeddedResource Include="WeaponSkins\2012_InfernoMG_Icon.png">
+      <LogicalName>WeaponSkins.2012_InfernoMG_Icon.png</LogicalName>
     </EmbeddedResource>
-    <EmbeddedResource Include="WeaponSkins\2012_CryoStrike.alpha.png">
-      <LogicalName>WeaponSkins.2012_CryoStrike.alpha.png</LogicalName>
+    <EmbeddedResource Include="WeaponSkins\2013_CryoStrike.alpha.png">
+      <LogicalName>WeaponSkins.2013_CryoStrike.alpha.png</LogicalName>
     </EmbeddedResource>
-    <EmbeddedResource Include="WeaponSkins\2012_CryoStrike.jpg">
-      <LogicalName>WeaponSkins.2012_CryoStrike.jpg</LogicalName>
+    <EmbeddedResource Include="WeaponSkins\2013_CryoStrike.jpg">
+      <LogicalName>WeaponSkins.2013_CryoStrike.jpg</LogicalName>
     </EmbeddedResource>
-    <EmbeddedResource Include="WeaponSkins\2012_CryoStrike_Icon.png">
-      <LogicalName>WeaponSkins.2012_CryoStrike_Icon.png</LogicalName>
+    <EmbeddedResource Include="WeaponSkins\2013_CryoStrike_Icon.png">
+      <LogicalName>WeaponSkins.2013_CryoStrike_Icon.png</LogicalName>
     </EmbeddedResource>
-    <EmbeddedResource Include="WeaponSkins\2013_SolarCannon.alpha.png">
-      <LogicalName>WeaponSkins.2013_SolarCannon.alpha.png</LogicalName>
+    <EmbeddedResource Include="WeaponSkins\2014_SolarCannon.alpha.png">
+      <LogicalName>WeaponSkins.2014_SolarCannon.alpha.png</LogicalName>
     </EmbeddedResource>
-    <EmbeddedResource Include="WeaponSkins\2013_SolarCannon.jpg">
-      <LogicalName>WeaponSkins.2013_SolarCannon.jpg</LogicalName>
+    <EmbeddedResource Include="WeaponSkins\2014_SolarCannon.jpg">
+      <LogicalName>WeaponSkins.2014_SolarCannon.jpg</LogicalName>
     </EmbeddedResource>
-    <EmbeddedResource Include="WeaponSkins\2013_SolarCannon_Icon.png">
-      <LogicalName>WeaponSkins.2013_SolarCannon_Icon.png</LogicalName>
+    <EmbeddedResource Include="WeaponSkins\2014_SolarCannon_Icon.png">
+      <LogicalName>WeaponSkins.2014_SolarCannon_Icon.png</LogicalName>
     </EmbeddedResource>
-    <EmbeddedResource Include="WeaponSkins\2014_HazardousShotgun.alpha.png">
-      <LogicalName>WeaponSkins.2014_HazardousShotgun.alpha.png</LogicalName>
+    <EmbeddedResource Include="WeaponSkins\2010_HazardousShotgun.alpha.png">
+      <LogicalName>WeaponSkins.2010_HazardousShotgun.alpha.png</LogicalName>
     </EmbeddedResource>
-    <EmbeddedResource Include="WeaponSkins\2014_HazardousShotgun.jpg">
-      <LogicalName>WeaponSkins.2014_HazardousShotgun.jpg</LogicalName>
+    <EmbeddedResource Include="WeaponSkins\2010_HazardousShotgun.jpg">
+      <LogicalName>WeaponSkins.2010_HazardousShotgun.jpg</LogicalName>
     </EmbeddedResource>
-    <EmbeddedResource Include="WeaponSkins\2014_HazardousShotgun_Icon.png">
-      <LogicalName>WeaponSkins.2014_HazardousShotgun_Icon.png</LogicalName>
+    <EmbeddedResource Include="WeaponSkins\2010_HazardousShotgun_Icon.png">
+      <LogicalName>WeaponSkins.2010_HazardousShotgun_Icon.png</LogicalName>
     </EmbeddedResource>
     <EmbeddedResource Include="WeaponSkins\2015_VoidAmethyst.alpha.png">
       <LogicalName>WeaponSkins.2015_VoidAmethyst.alpha.png</LogicalName>
