@@ -9,78 +9,78 @@
 // these are pure re-textures of weapons that already exist in the game.
 //
 // Item ID -> base weapon mapping (from unity_2022_tg/skin-framework commit 850893ee).
-// Keep this list complete: it went stale once at 9012-9015 and again at 9018, which makes it
+// Keep this list complete: it went stale once at 2015-2018 and again at 2021, which makes it
 // look authoritative while being wrong.
-//   9007 Plasma Bat        (base 1000 TheSplatbat)
-//   9008 Inferno MG        (base 1002 MachineGun)
-//   9009 Cryo Strike       (base 1004 PaintSniper)
-//   9010 Solar Cannon      (base 1005 Cannon)
-//   9011 Hazardous Shotgun (was Natural Shotgun)   (base 1003 PaintShotty)   -- renamed from Toxic Splatter 2026-08-12
-//   9012 Void Amethyst     (base 1004 PaintSniper)   -- also the only tracer override
-//   9013 Bloodhound        (base 1003 PaintShotty)
-//   9014 Abyssal Leviathan (base 1005 Cannon)
-//   9015 Neon Circuit      (base 1002 MachineGun)
-//   9016 Crimson Dragon    (base 6 MythicEdge-DE, premium melee)
-//   9017 Frostbound        (base 6 MythicEdge-DE)    -- see-through ice, HELIX flames, blue as
+//   2010 Plasma Bat        (base 1000 TheSplatbat)
+//   2011 Inferno MG        (base 1002 MachineGun)
+//   2012 Cryo Strike       (base 1004 PaintSniper)
+//   2013 Solar Cannon      (base 1005 Cannon)
+//   2014 Hazardous Shotgun (was Natural Shotgun)   (base 1003 PaintShotty)   -- renamed from Toxic Splatter 2026-08-12
+//   2015 Void Amethyst     (base 1004 PaintSniper)   -- also the only tracer override
+//   2016 Bloodhound        (base 1003 PaintShotty)
+//   2017 Abyssal Leviathan (base 1005 Cannon)
+//   2018 Neon Circuit      (base 1002 MachineGun)
+//   2019 Crimson Dragon    (base 6 MythicEdge-DE, premium melee)
+//   2020 Frostbound        (base 6 MythicEdge-DE)    -- see-through ice, HELIX flames, blue as
 //                                                       of 2026-08-17, on the second flame sheet
-//   9018 Frostfire         (base 6 MythicEdge-DE)    -- shares 9017's art, SURFACE flames
-//   9019 Bloodglass        (base 6 MythicEdge-DE)    -- see-through red, SURFACE flames
-//   9020 AWP [Permafrost]  (base AWP_Roughed)        -- see-through ice, HELIX flames as of
+//   2021 Frostfire         (base 6 MythicEdge-DE)    -- shares 2020's art, SURFACE flames
+//   2022 Bloodglass        (base 6 MythicEdge-DE)    -- see-through red, SURFACE flames
+//   2023 AWP [Permafrost]  (base AWP_Roughed)        -- see-through ice, HELIX flames as of
 //                                                       2026-08-17, plus a blue muzzle light.
 //                                                       Its mesh is still not CPU-readable, so
 //                                                       SURFACE remains impossible here.
-//   9021 Icebreaker        (base DeathHammer)        -- see-through ice, HELIX flames, same
+//   2024 Icebreaker        (base DeathHammer)        -- see-through ice, HELIX flames, same
 //                                                       caveat. DeathHammer is ItemClass 4, a
 //                                                       SHOTGUN with 12 projectiles -- not a
 //                                                       warhammer.
-//   9022 MG [Watery]       (base 1002 MachineGun)
-//   9023 Sniper [Watery]   (base 1004 PaintSniper)
-//   9024 Shotgun [Watery]  (base 1003 PaintShotty)
-//   9025 Cannon [Watery]   (base 1005 Cannon)
-//   9026 MG [Frosted]      (base 1002 MachineGun)
-//   9027 Sniper [Frosted]  (base 1004 PaintSniper)
-//   9028 Shotgun [Frosted] (base 1003 PaintShotty)
-//   9029 Cannon [Frosted]  (base 1005 Cannon)
-//   9030 MG [Lava]         (base 1002 MachineGun)   -- the [Lava] set: same water shader and the
-//   9031 Sniper [Lava]     (base 1004 PaintSniper)     same four water textures as [Watery],
-//   9032 Shotgun [Lava]    (base 1003 PaintShotty)     three colours apart. NO painted art and
-//   9033 Cannon [Lava]     (base 1005 Cannon)          NO flames -- see LavaBindings.
-//   9034 Neon Circuit [Black] (base 1002 MachineGun) -- 9015's sibling: the SAME cyan linework,
+//   2025 MG [Watery]       (base 1002 MachineGun)
+//   2026 Sniper [Watery]   (base 1004 PaintSniper)
+//   2027 Shotgun [Watery]  (base 1003 PaintShotty)
+//   2028 Cannon [Watery]   (base 1005 Cannon)
+//   2029 MG [Frosted]      (base 1002 MachineGun)
+//   2030 Sniper [Frosted]  (base 1004 PaintSniper)
+//   2031 Shotgun [Frosted] (base 1003 PaintShotty)
+//   2032 Cannon [Frosted]  (base 1005 Cannon)
+//   2033 MG [Lava]         (base 1002 MachineGun)   -- the [Lava] set: same water shader and the
+//   2034 Sniper [Lava]     (base 1004 PaintSniper)     same four water textures as [Watery],
+//   2035 Shotgun [Lava]    (base 1003 PaintShotty)     three colours apart. NO painted art and
+//   2036 Cannon [Lava]     (base 1005 Cannon)          NO flames -- see LavaBindings.
+//   2037 Neon Circuit [Black] (base 1002 MachineGun) -- 2018's sibling: the SAME cyan linework,
 //                                                       pixel-for-pixel, over a graphite body
 //                                                       instead of a light one.
-//   9035 AWP [Matte Glass]  (base AWP_Roughed)       -- 9020's variant. SHARES 9020's painted art
+//   2038 AWP [Matte Glass]  (base AWP_Roughed)       -- 2023's variant. SHARES 2023's painted art
 //                                                       and shader; the ONLY difference is
 //                                                       _ReflectColor driven to near-black, which
 //                                                       removes the white gloss term and leaves
 //                                                       the see-through untouched. NO flames.
-//   9036 Icebreaker [Matte Glass] (base DeathHammer) -- 9021's variant, same one-number change.
-//   9038 AWP [Clear Ice]     (base AWP_Roughed)       -- the ORIGINAL pre-2026-08-17 look, kept as
+//   2039 Icebreaker [Matte Glass] (base DeathHammer) -- 2024's variant, same one-number change.
+//   2041 AWP [Clear Ice]     (base AWP_Roughed)       -- the ORIGINAL pre-2026-08-17 look, kept as
 //                                                       its own skin: blueish transparent with no
 //                                                       glow. NO SkinMaterialBindings entry, which
 //                                                       is the whole point -- it inherits
 //                                                       ApplyShaderOverride's icy default.
-//   9039 Icebreaker [Clear Ice] (base DeathHammer)    -- same, on the hammer.
-//   9040 M4A1 [Gold]        (base 28 M4_Standard)      -- the [Gold] set. PROCEDURALLY DYED from
-//   9041 AK-47 [Gold]       (base 38 AK47)                each weapon's own stock diffuse: a
-//   9042 SPAS-12 [Gold]     (base 60 Automatic_Shotgun_Roughed)  luminance remap through a
-//   9043 AWP [Gold]         (base 92 AWP_Roughed)         bronze->gold->specular ramp, so every
+//   2042 Icebreaker [Clear Ice] (base DeathHammer)    -- same, on the hammer.
+//   2043 M4A1 [Gold]        (base 28 M4_Standard)      -- the [Gold] set. PROCEDURALLY DYED from
+//   2044 AK-47 [Gold]       (base 38 AK47)                each weapon's own stock diffuse: a
+//   2045 SPAS-12 [Gold]     (base 60 Automatic_Shotgun_Roughed)  luminance remap through a
+//   2046 AWP [Gold]         (base 92 AWP_Roughed)         bronze->gold->specular ramp, so every
 //                                                       panel line, screw and vent of the base
 //                                                       survives. No AI pass and no hand art.
 //                                                       All four are Bumped Specular, so their
 //                                                       .alpha.png red channel is GLOSS.
-//   9044-9063  FIVE PROCEDURAL SETS on M4A1 / AK-47 / SPAS-12 / AWP, generated by
+//   2047-2062  FIVE PROCEDURAL SETS on M4A1 / AK-47 / SPAS-12 / AWP, generated by
 //              webgl-skins-rendering/tools/make_skin_sets.py. Same principle as [Gold]: a dye
 //              moves colour and never redraws geometry, so every panel line, screw and stamp
 //              of the stock texture survives. All Bumped Specular, so .alpha.png red = GLOSS.
-//                9044-9047 [Chrome]    mirror silver, tone percentile-pinned per weapon so all
+//                2047-2050 [Chrome]    mirror silver, tone percentile-pinned per weapon so all
 //                                      four read as ONE plating job rather than four metals
-//                9048-9051 [Damascus]  domain-warped banding -- folded steel, not a repeat
-//                9056-9059 [Carbon]    twill weave on the dark panels, metal furniture kept
-//                9060-9063 [Tempered]  heat-oxide gradient driven by POSITION ALONG THE WEAPON,
+//                2051-2054 [Damascus]  domain-warped banding -- folded steel, not a repeat
+//                2055-2058 [Carbon]    twill weave on the dark panels, metal furniture kept
+//                2059-2062 [Tempered]  heat-oxide gradient driven by POSITION ALONG THE WEAPON,
 //                                      from a UV->3D map rasterised out of the mesh export.
 //                                      The first skin here whose colour knows where a texel
 //                                      sits on the gun rather than only what value it is.
-//   9064-9067  [Chrome Max] on the same four weapons -- engraved chrome, and the ONE set tonight
+//   2063-2066  [Chrome Max] on the same four weapons -- engraved chrome, and the ONE set tonight
 //              that is NOT procedural. Engraving is new detail drawn onto the surface: scrollwork
 //              and filigree exist nowhere in the base to be remapped, so a dye cannot produce it
 //              and this went through Nano Banana Pro 2. Each weapon carries its own motif
@@ -94,18 +94,18 @@
 //              The brief itself needs rethinking, not the execution -- so nothing here is worth
 //              inheriting. The prompts and every generated sheet are kept in
 //              Desktop/UberStrike_Skins_2026-08-06/07_VenomV2 rather than in the client.
-//   9037 AWP [Frozen Serpent] (base AWP_Roughed)     -- painted, an ORIGINAL blue/white serpent.
+//   2040 AWP [Frozen Serpent] (base AWP_Roughed)     -- painted, an ORIGINAL blue/white serpent.
 //                                                       Bumped Specular, so its .alpha.png red
 //                                                       channel is GLOSS, not transparency. It is
 //                                                       the first AWP skin whose gloss mask is
 //                                                       DERIVED rather than inherited -- the base
 //                                                       has none. Blue muzzle FX, no flames yet.
 //
-// Completed 2026-08-16 -- it had gone stale a THIRD time, stopping at 9019. Found by
-// skin_studio, which derives each skin's base weapon from this block and reported 9020/9021 as
+// Completed 2026-08-16 -- it had gone stale a THIRD time, stopping at 2022. Found by
+// skin_studio, which derives each skin's base weapon from this block and reported 2023/2024 as
 // having no derivable base, so the AWP and DeathHammer could not be previewed at all.
 //
-// 9030-9033 were added to this block IN THE SAME EDIT that added them to the tables below, which
+// 2033-2036 were added to this block IN THE SAME EDIT that added them to the tables below, which
 // is the only way this list stays true. Three of the four times it went stale, the tables were
 // right and only this block was wrong -- and because skin_studio reads THIS block to find each
 // skin's base weapon, a skin missing here cannot be previewed at all even though it works in game.
@@ -119,10 +119,10 @@
 // assumed, because a comment that guesses at the other half of the delivery is how the [Lava]
 // icons nearly shipped unembedded:
 //   UberServer/src/UberStrok.WebServices.AspNetCore/assets/configs/game/items.json
-//     171 WeaponItems, 9030-9034 all present. 9034 is {ID 9034, "Neon Circuit [Black]",
+//     171 WeaponItems, 2033-2037 all present. 2037 is {ID 2037, "Neon Circuit [Black]",
 //     ItemClass 3, PrefabName MachineGun}, matching the base weapon this file assumes.
 //   UberStrok.WebServices.AspNetCore/bin/Release/net6.0/assets/... (the BUILT copy the running
-//     service reads) is still at 166 and has neither 9030-9033 nor 9034, and the older
+//     service reads) is still at 166 and has neither 2033-2036 nor 2037, and the older
 //     UberStrok.WebServices/configs/game/items.json is at 142.
 // So the catalog row EXISTS in source and is NOT yet in the deployed build. Nothing in this file
 // depends on that -- these tables are keyed by item id and are inert for an id the server never
@@ -139,34 +139,34 @@ public static class WeaponSkinHelper
 	// itemId -> embedded resource name (LogicalName in the .csproj).
 	public static readonly Dictionary<int, string> SkinTextures = new Dictionary<int, string>
 	{
-		{ 9007, "9007_PlasmaBat.png" },
-		// 9008 repainted 2026-08-11 against the 4.7.1 MachineGun base, same as 9015.
+		{ 2010, "2010_PlasmaBat.png" },
+		// 2011 repainted 2026-08-11 against the 4.7.1 MachineGun base, same as 2018.
 		// It was parked on the theory that the texture was rotated on this client's mesh;
-		// that was wrong. The real cause was the UV layout, see the 9015 note below.
+		// that was wrong. The real cause was the UV layout, see the 2018 note below.
 		// Measures 4.1% unpainted at brightness 153.0.
-		{ 9008, "9008_InfernoMG.png" },
-		{ 9009, "9009_CryoStrike.png" },
-		{ 9010, "9010_SolarCannon.png" },
-		{ 9011, "9011_HazardousShotgun.png" },
+		{ 2011, "2011_InfernoMG.png" },
+		{ 2012, "2012_CryoStrike.png" },
+		{ 2013, "2013_SolarCannon.png" },
+		{ 2014, "2014_HazardousShotgun.png" },
 		// 2026-08-06 batch. Sniper, shotgun and cannon port cleanly to the 4.7.1
 		// meshes: like the four above, these are authored against the 4.3.8 base UV
 		// layouts, which measure 0.959 to 0.979 island recall against the meshes
 		// this client actually uses.
-		{ 9012, "9012_VoidAmethyst.png" },
-		{ 9013, "9013_Bloodhound.png" },
-		{ 9014, "9014_AbyssalLeviathan.png" },
-		// 9015 repainted 2026-08-11 against the 4.7.1 MachineGun base. The original was
+		{ 2015, "2015_VoidAmethyst.png" },
+		{ 2016, "2016_Bloodhound.png" },
+		{ 2017, "2017_AbyssalLeviathan.png" },
+		// 2018 repainted 2026-08-11 against the 4.7.1 MachineGun base. The original was
 		// authored on the 4.3.8 texture, whose UV layout uses 47% of the sheet against
 		// 4.7.1's 87%, so it left ~37% of the mesh unpainted and rendered black in patches.
 		// The repaint measures 5.1% unpainted, in line with every skin that renders
-		// correctly (0.4% to 4.4%). 9008 above is the same fix applied to the other
+		// correctly (0.4% to 4.4%). 2011 above is the same fix applied to the other
 		// MachineGun skin, so both are now live.
-		{ 9015, "9015_NeonCircuit.png" },
+		{ 2018, "2018_NeonCircuit.png" },
 		// 2026-08-11. First two skins on PREMIUM base weapons rather than the five stock
 		// ones. These live in Resources/items/weapons/<slug>/res/ with their own material
 		// and prefab, so unlike the others their base texture is not in Texture2D/.
 		//
-		// 9016 Crimson Dragon is the Mythic Edge katana (base item 6, prefab MythicEdge-DE).
+		// 2019 Crimson Dragon is the Mythic Edge katana (base item 6, prefab MythicEdge-DE).
 		// Its base is 512x1024, not square, and the generator only emits squares: asking it
 		// directly made it re-lay-out the UV islands to fill the canvas. Fixed by padding
 		// the base into a square before generation and cropping the padding back off, which
@@ -181,7 +181,7 @@ public static class WeaponSkinHelper
 		// metallic/roughness maps, not a texture for this rifle at all. No reskin of
 		// AWP_Roughed can reach it. Doing so needs the mesh decimated, baked down to
 		// diffuse+normal, and shipped in an AssetBundle -- a custom mesh, not a re-texture.
-		{ 9016, "9016_CrimsonDragon.png" },
+		{ 2019, "2019_CrimsonDragon.png" },
 		// 2026-08-12. Second skin on the katana, and the first that is not a pure re-texture:
 		// Frostbound is genuinely see-through, with animated flames over it.
 		//
@@ -197,82 +197,82 @@ public static class WeaponSkinHelper
 		// polished-metal texels are separable from the wrap and saya panels. That puts the
 		// blade at 8.5% of the sheet under alpha 0.55 while 85% stays solid, which is what
 		// keeps the grip looking held rather than ghostly.
-		{ 9017, "9017_Frostbound.png" },
-		// 2026-08-12. Same glass sword as 9017, deliberately sharing its texture files rather
+		{ 2020, "2020_Frostbound.png" },
+		// 2026-08-12. Same glass sword as 2020, deliberately sharing its texture files rather
 		// than duplicating them -- the two skins differ only in HOW the fire moves, so two
 		// copies of the same art would only be two things to keep in sync. What differs is the
 		// flame mode below, the catalog name, and the icon.
-		{ 9018, "9017_Frostbound.png" },
+		{ 2021, "2020_Frostbound.png" },
 		// 2026-08-13. Third skin on this katana and the second see-through one: red glass rather
-		// than ice. It has its OWN art, unlike 9018, because the palette is the whole point.
+		// than ice. It has its OWN art, unlike 2021, because the palette is the whole point.
 		//
 		// Getting red to work here took three generation passes, and the reason is worth keeping.
 		// This base already carries a dragon etched down the blade and a diamond-weave grip, and
-		// 9016 Crimson Dragon is already the red katana on it, so colour alone could never
+		// 2019 Crimson Dragon is already the red katana on it, so colour alone could never
 		// separate the two. What separates this one is that it is TRANSPARENT: the dragon reads
 		// as a denser form suspended INSIDE the glass rather than as a glowing inlay, which is
-		// 9016's language.
+		// 2019's language.
 		//
 		// The shipped art needed a luminance-only correction (gamma 0.50 + 0.04 lift, hue and
 		// saturation untouched). Every red generation came back underexposed -- around brightness
 		// 38 against the 55-80 target -- while the same prompt asking for ice came back correctly
 		// exposed. A plain RGB gamma fixes the exposure but washes the red out to R/B 1.70, under
-		// the 2.0 gate; lifting only the value channel holds R/B at 2.52, just above 9016's 2.57.
-		{ 9019, "9019_Bloodglass.png" },
+		// the 2.0 gate; lifting only the value channel holds R/B at 2.52, just above 2019's 2.57.
+		{ 2022, "2022_Bloodglass.png" },
 		// 2026-08-13. First see-through skins on a FIREARM and on a blunt melee, and the first
 		// whose transparency is NOT authored from a gloss mask -- neither base has one, their
 		// alpha is fully opaque (measured). So the translucency comes from painted BRIGHTNESS
 		// instead: the art was briefed to keep held parts dark (<80) and glass parts bright
 		// (>140), and the ramp sits across that measured gap. AWP came back 35% dark / 31%
 		// bright, the hammer 30% / 39%, both with a thin middle -- separable.
-		{ 9020, "9020_Permafrost.png" },
-		{ 9021, "9021_Icebreaker.png" },
-		// 9035/9036 SHARE the art above, exactly as 9018 shares 9017's. The matte variants differ
+		{ 2023, "2023_Permafrost.png" },
+		{ 2024, "2024_Icebreaker.png" },
+		// 2038/2039 SHARE the art above, exactly as 2021 shares 2020's. The matte variants differ
 		// only in _ReflectColor, so a second copy of the same two textures would be 4 MB of
 		// duplicate art and two more files to keep in sync when the ice grade is next touched.
-		{ 9035, "9020_Permafrost.png" },
-		{ 9036, "9021_Icebreaker.png" },
-		{ 9038, "9020_Permafrost.png" },
-		{ 9039, "9021_Icebreaker.png" },
-		{ 9040, "9040_M4A1Gold.png" },
-		{ 9041, "9041_AK47Gold.png" },
-		{ 9042, "9042_SPAS12Gold.png" },
-		{ 9043, "9043_AWPGold.png" },
-		{ 9044, "9044_M4A1Chrome.png" },
-		{ 9045, "9045_AK47Chrome.png" },
-		{ 9046, "9046_SPAS12Chrome.png" },
-		{ 9047, "9047_AWPChrome.png" },
-		{ 9048, "9048_M4A1Damascus.png" },
-		{ 9049, "9049_AK47Damascus.png" },
-		{ 9050, "9050_SPAS12Damascus.png" },
-		{ 9051, "9051_AWPDamascus.png" },
-		{ 9056, "9056_M4A1Carbon.png" },
-		{ 9057, "9057_AK47Carbon.png" },
-		{ 9058, "9058_SPAS12Carbon.png" },
-		{ 9059, "9059_AWPCarbon.png" },
-		{ 9060, "9060_M4A1Tempered.png" },
-		{ 9061, "9061_AK47Tempered.png" },
-		{ 9062, "9062_SPAS12Tempered.png" },
-		{ 9063, "9063_AWPTempered.png" },
-		{ 9064, "9064_M4A1ChromeMax.png" },
-		{ 9065, "9065_AK47ChromeMax.png" },
-		{ 9066, "9066_SPAS12ChromeMax.png" },
-		{ 9067, "9067_AWPChromeMax.png" },
-		// 9037. NOT a Glass-Hangar skin -- it keeps AWP_Roughed's own Bumped Specular, so unlike
-		// 9020/9021/9035/9036 on the same weapon, alpha here means GLOSS and not transparency.
-		{ 9037, "9037_FrostSerpent.png" },
-		{ 9079, "9079_AWPUberverse.png" },
-		{ 9080, "9080_CyberNeon.png" },
-		{ 9081, "9081_ToxicVenom.png" },
-		{ 9082, "9082_MoltenInferno.png" },
-		// V1 (9083) and V1.2 (9084) share the same Uberverse galaxy paint as V2 (9079); they
+		{ 2038, "2023_Permafrost.png" },
+		{ 2039, "2024_Icebreaker.png" },
+		{ 2041, "2023_Permafrost.png" },
+		{ 2042, "2024_Icebreaker.png" },
+		{ 2043, "2043_M4A1Gold.png" },
+		{ 2044, "2044_AK47Gold.png" },
+		{ 2045, "2045_SPAS12Gold.png" },
+		{ 2046, "2046_AWPGold.png" },
+		{ 2047, "2047_M4A1Chrome.png" },
+		{ 2048, "2048_AK47Chrome.png" },
+		{ 2049, "2049_SPAS12Chrome.png" },
+		{ 2050, "2050_AWPChrome.png" },
+		{ 2051, "2051_M4A1Damascus.png" },
+		{ 2052, "2052_AK47Damascus.png" },
+		{ 2053, "2053_SPAS12Damascus.png" },
+		{ 2054, "2054_AWPDamascus.png" },
+		{ 2055, "2055_M4A1Carbon.png" },
+		{ 2056, "2056_AK47Carbon.png" },
+		{ 2057, "2057_SPAS12Carbon.png" },
+		{ 2058, "2058_AWPCarbon.png" },
+		{ 2059, "2059_M4A1Tempered.png" },
+		{ 2060, "2060_AK47Tempered.png" },
+		{ 2061, "2061_SPAS12Tempered.png" },
+		{ 2062, "2062_AWPTempered.png" },
+		{ 2063, "2063_M4A1ChromeMax.png" },
+		{ 2064, "2064_AK47ChromeMax.png" },
+		{ 2065, "2065_SPAS12ChromeMax.png" },
+		{ 2066, "2066_AWPChromeMax.png" },
+		// 2040. NOT a Glass-Hangar skin -- it keeps AWP_Roughed's own Bumped Specular, so unlike
+		// 2023/2024/2038/2039 on the same weapon, alpha here means GLOSS and not transparency.
+		{ 2040, "2040_FrostSerpent.png" },
+		{ 2067, "2067_AWPUberverse.png" },
+		{ 2068, "2068_CyberNeon.png" },
+		{ 2069, "2069_ToxicVenom.png" },
+		{ 2070, "2070_MoltenInferno.png" },
+		// V1 (2071) and V1.2 (2072) share the same Uberverse galaxy paint as V2 (2067); they
 		// differ only in their orbital FX, so no new art is embedded for them.
-		{ 9083, "9079_AWPUberverse.png" },
-		{ 9084, "9079_AWPUberverse.png" },
+		{ 2071, "2067_AWPUberverse.png" },
+		{ 2072, "2067_AWPUberverse.png" },
 		// New weapon skins on their own base weapons (not the AWP): Wrecker (116) + Splattergun (106).
-		{ 9085, "9085_WreckerVoidglass.png" },
-		{ 9086, "9086_SplattergunPrismSplatter.png" },
-		{ 9087, "9087_LauncherDragonsMaw.png" }, // Grenade Launcher (base 111)
+		{ 2073, "2073_WreckerVoidglass.png" },
+		{ 2074, "2074_SplattergunPrismSplatter.png" },
+		{ 2075, "2075_LauncherDragonsMaw.png" }, // Grenade Launcher (base 111)
 		// 2026-08-13. The glacier set: the first skins in this file that are GENERATED rather
 		// than painted. tools/make_glacier_skin.py transforms each base pixel-wise -- luminance
 		// through an ice ramp, procedural fractures and frost scaled by a glass weight, edge
@@ -287,31 +287,31 @@ public static class WeaponSkinHelper
 		// Bases identified by correlating against the skins that already render correctly, not
 		// by filename: MachineGun_DM 0.662, Sniper-diffuse 0.325, Shotgun-diffuse 0.321,
 		// Cannon-diffuse 0.295, each well clear of its runner-up. Picking a base by name is
-		// what left 9015 with ~37% of its mesh unpainted.
-		{ 9022, "9022_MGWatery.png" },
-		{ 9023, "9023_SniperWatery.png" },
-		{ 9024, "9024_ShotgunWatery.png" },
-		{ 9025, "9025_CannonWatery.png" },
+		// what left 2018 with ~37% of its mesh unpainted.
+		{ 2025, "2025_MGWatery.png" },
+		{ 2026, "2026_SniperWatery.png" },
+		{ 2027, "2027_ShotgunWatery.png" },
+		{ 2028, "2028_CannonWatery.png" },
 		// The same generator, second palette. Frost SCATTERS light where water TRANSMITS it,
 		// so the two ramps differ in more than hue: water holds its colour as it brightens
 		// (B/R 2.0-2.8), frost climbs to a neutral near-white (B/R 1.2-1.4) and keeps its
 		// cyan bias almost off, because a blue cast on a white ramp reads as plastic.
 		// Frost also gets far less liquid smoothing -- 0.35 against 0.70 -- since snow is a
 		// granular surface and should not flow.
-		{ 9026, "9026_MGFrosted.png" },
-		{ 9027, "9027_SniperFrosted.png" },
-		{ 9028, "9028_ShotgunFrosted.png" },
-		{ 9029, "9029_CannonFrosted.png" },
-		// 2026-08-17. The black-base sibling of 9015 Neon Circuit, on the same MachineGun.
+		{ 2029, "2029_MGFrosted.png" },
+		{ 2030, "2030_SniperFrosted.png" },
+		{ 2031, "2031_ShotgunFrosted.png" },
+		{ 2032, "2032_CannonFrosted.png" },
+		// 2026-08-17. The black-base sibling of 2018 Neon Circuit, on the same MachineGun.
 		//
 		// Like the [Frosted]/[Watery] sets this is GENERATED from an existing sheet rather than
 		// painted, and for the same reason: the circuit traces are the identity of the skin and
-		// must not move a single texel. Every operation is pixel-wise on 9015's own texels, so
+		// must not move a single texel. Every operation is pixel-wise on 2018's own texels, so
 		// every UV island stays on its original pixel and coverage cannot drop -- which is the
-		// failure that left the ORIGINAL 9015 with ~37% of its mesh unpainted.
+		// failure that left the ORIGINAL 2018 with ~37% of its mesh unpainted.
 		//
 		// The transform, in order: isolate the linework by cyan-excess (G+B)/2 - R through a
-		// smoothstep 38..52 gate (measured bimodal on 9015: p90 16.0 against p99 176.5, so the
+		// smoothstep 38..52 gate (measured bimodal on 2018: p90 16.0 against p99 176.5, so the
 		// gate sits in an empty gap); compress the BODY on HSV value only, holding hue and
 		// saturation, to a graphite floor near luminance 22; raise the TRACES by each pixel's own
 		// headroom so nothing clips; then a painted cyan bloom around them.
@@ -330,12 +330,12 @@ public static class WeaponSkinHelper
 		//     cyan bin fell to 72.9%. Scaling each pixel by 255/max-channel reaches the same
 		//     luminance with hue and saturation mathematically unchanged.
 		//
-		// ITS ALPHA IS 9015's, BYTE-FOR-BYTE, and that is deliberate. On this weapon _MainTex is
+		// ITS ALPHA IS 2018's, BYTE-FOR-BYTE, and that is deliberate. On this weapon _MainTex is
 		// "Base (RGB) Gloss (A)" and the shader does o.Gloss = tex.a, so alpha is GLOSS, not
-		// transparency (contrast 9017 below, where the shader swap makes it transparency). Alpha
+		// transparency (contrast 2020 below, where the shader swap makes it transparency). Alpha
 		// says WHICH PANELS ARE POLISHED, the panels did not move, so neither did the mask.
-		// 9015's and 9008's masks are already byte-identical to each other for the same reason.
-		{ 9034, "9034_NeonCircuitBlack.png" },
+		// 2018's and 2011's masks are already byte-identical to each other for the same reason.
+		{ 2037, "2037_NeonCircuitBlack.png" },
 	};
 
 	/// <summary>
@@ -381,25 +381,25 @@ public static class WeaponSkinHelper
 		// eye looks through more shell and the add doubles, which puts the brightest fire exactly
 		// on the silhouette where it belongs. Over the middle of the gun it is a single soft pass.
 		// That is why the tint can stay low and still read as fire on the edge.
-		{ 9020, 1.09f },   // AWP: long and thin, so a larger factor is still a small absolute skin
-		{ 9021, 1.07f },   // Death Hammer: chunkier body, the same factor would look inflated
+		{ 2023, 1.09f },   // AWP: long and thin, so a larger factor is still a small absolute skin
+		{ 2024, 1.07f },   // Death Hammer: chunkier body, the same factor would look inflated
 	};
 
 	public static readonly Dictionary<int, FlameMode> SkinFlameModes = new Dictionary<int, FlameMode>
 	{
-		{ 9017, FlameMode.Helix },
-		{ 9018, FlameMode.Surface },
-		// Surface, matching 9018 rather than 9017: the brief was flames INSIDE the body, and the
+		{ 2020, FlameMode.Helix },
+		{ 2021, FlameMode.Surface },
+		// Surface, matching 2021 rather than 2020: the brief was flames INSIDE the body, and the
 		// helix sleeve stands the fire off the blade instead.
-		{ 9019, FlameMode.Surface },
-		// Surface: fire on the weapon itself, matching 9018 Frostfire.
+		{ 2022, FlameMode.Surface },
+		// Surface: fire on the weapon itself, matching 2021 Frostfire.
 		//
 		// This crashed the client when it first shipped, inside WhiteVertexCopy's
 		// Object.Instantiate of the weapon mesh. That call is gone -- the overlay mesh is now
 		// rebuilt by hand from the source arrays, so a mesh the CPU cannot read raises a
 		// catchable managed error and costs the weapon its flames rather than the session.
 		//
-		// 9020/9021 ARE HELIX, AND THESE TWO ROWS ARE THE MOST LOAD-BEARING IN THE TABLE.
+		// 2023/2024 ARE HELIX, AND THESE TWO ROWS ARE THE MOST LOAD-BEARING IN THE TABLE.
 		// AWP.asset and Death_Hammer.asset both carry m_IsReadable: 0, so Surface mode -- which
 		// rebuilds the weapon's own geometry from source.vertices -- cannot work on them by any
 		// route. It no longer CRASHES (Object.Instantiate is gone; the read is a catchable managed
@@ -417,20 +417,20 @@ public static class WeaponSkinHelper
 		// does not copy the mesh -- AWP.asset and Death_Hammer.asset are m_IsReadable: 0, which is
 		// what ruled Surface out and sent the first two attempts to Helix in the first place.
 		//
-		// The SkinSleeves entries for 9020/9021 are deliberately LEFT IN PLACE. They are unused by
+		// The SkinSleeves entries for 2023/2024 are deliberately LEFT IN PLACE. They are unused by
 		// Shell, they are fully documented, and they are the record of what was tried -- deleting
 		// them invites a fourth attempt at the same thing.
-		// 9020/9021 removed -- see the note in SkinFlames. Shell mode itself stays; it is the
+		// 2023/2024 removed -- see the note in SkinFlames. Shell mode itself stays; it is the
 		// only mode that works on a non-CPU-readable mesh and the next such skin will need it.
 		//
-		// 9022-9025 [Watery] removed 2026-08-17, together with their SkinFlames entries -- the
+		// 2025-2028 [Watery] removed 2026-08-17, together with their SkinFlames entries -- the
 		// full reasoning is there, at the sheet that actually turns flames on. This entry would
 		// be dead weight without it, and a mode left behind for a skin that no longer burns is
 		// exactly the sort of half-registration that gets copied into the next set.
-		{ 9026, FlameMode.Surface },
-		{ 9027, FlameMode.Surface },
-		{ 9028, FlameMode.Surface },
-		{ 9029, FlameMode.Surface },
+		{ 2029, FlameMode.Surface },
+		{ 2030, FlameMode.Surface },
+		{ 2031, FlameMode.Surface },
+		{ 2032, FlameMode.Surface },
 	};
 
 	// ---------------------------------------------------------------- the water shader
@@ -459,7 +459,7 @@ public static class WeaponSkinHelper
 	// shader without assigning textures gives _Caustics = "black", so the caustics term
 	// multiplies out to ZERO and the weapon has no caustics at all, while _Cube = "black"
 	// collapses the cubemap lerp and _WaterColor_Dark defaults to WHITE water. Nothing errors;
-	// it just renders wrong. That is the Bloodglass failure repeating -- see the 9019 note in
+	// it just renders wrong. That is the Bloodglass failure repeating -- see the 2022 note in
 	// SkinShaders, where an unassigned _Cube sampled WHITE and turned a red blade grey-pink.
 	// So SkinMaterialBindings below is load-bearing. Do not "simplify" those assignments away.
 	//
@@ -508,9 +508,9 @@ public static class WeaponSkinHelper
 	/// </summary>
 	public static readonly Dictionary<int, string[]> SkinShaders = new Dictionary<int, string[]>
 	{
-		{ 9017, new string[] { "Unique/Transparent/Glass-Hangar", "Transparent/Diffuse" } },
-		{ 9018, new string[] { "Unique/Transparent/Glass-Hangar", "Transparent/Diffuse" } },
-		// 9019 deliberately SKIPS Glass-Hangar and takes Transparent/Diffuse directly.
+		{ 2020, new string[] { "Unique/Transparent/Glass-Hangar", "Transparent/Diffuse" } },
+		{ 2021, new string[] { "Unique/Transparent/Glass-Hangar", "Transparent/Diffuse" } },
+		// 2022 deliberately SKIPS Glass-Hangar and takes Transparent/Diffuse directly.
 		//
 		// Glass-Hangar binds fine here -- the client logs it -- but it adds a cubemap reflection
 		// whose _Cube we never assign, so it samples WHITE. On the ice skins that wash is
@@ -521,19 +521,19 @@ public static class WeaponSkinHelper
 		// Transparent/Diffuse has no reflection term at all: albedo is the texture, alpha is
 		// the texture's alpha. It costs the faint cubemap sparkle and keeps the colour, which
 		// is the right trade for a skin whose entire identity is that it is red.
-		{ 9019, new string[] { "Transparent/Diffuse" } },
-		{ 9020, new string[] { "Unique/Transparent/Glass-Hangar", "Transparent/Diffuse" } },
-		{ 9021, new string[] { "Unique/Transparent/Glass-Hangar", "Transparent/Diffuse" } },
-		{ 9035, new string[] { "Unique/Transparent/Glass-Hangar", "Transparent/Diffuse" } },
-		{ 9036, new string[] { "Unique/Transparent/Glass-Hangar", "Transparent/Diffuse" } },
-		// 9038/9039 bind the SAME shader and deliberately have NO SkinMaterialBindings row, so
+		{ 2022, new string[] { "Transparent/Diffuse" } },
+		{ 2023, new string[] { "Unique/Transparent/Glass-Hangar", "Transparent/Diffuse" } },
+		{ 2024, new string[] { "Unique/Transparent/Glass-Hangar", "Transparent/Diffuse" } },
+		{ 2038, new string[] { "Unique/Transparent/Glass-Hangar", "Transparent/Diffuse" } },
+		{ 2039, new string[] { "Unique/Transparent/Glass-Hangar", "Transparent/Diffuse" } },
+		// 2041/2042 bind the SAME shader and deliberately have NO SkinMaterialBindings row, so
 		// ApplyShaderOverride's icy default supplies _ReflectColor (0.55, 0.75, 0.95, 0.08) and
 		// _Color stays the material's own (1,1,1,1). That combination IS the look these two
 		// shipped with before 2026-08-17, and the team asked to keep it alongside the two new
 		// treatments rather than replace it. Alpha 0.08 on the reflection is why there is no glow.
-		{ 9038, new string[] { "Unique/Transparent/Glass-Hangar", "Transparent/Diffuse" } },
-		{ 9039, new string[] { "Unique/Transparent/Glass-Hangar", "Transparent/Diffuse" } },
-		// 9022-9025, the [Watery] set, bind the game's OWN water shader.
+		{ 2041, new string[] { "Unique/Transparent/Glass-Hangar", "Transparent/Diffuse" } },
+		{ 2042, new string[] { "Unique/Transparent/Glass-Hangar", "Transparent/Diffuse" } },
+		// 2025-2028, the [Watery] set, bind the game's OWN water shader.
 		//
 		// This REPLACES their painted art, knowingly. _MainTex on this shader is not albedo --
 		// the shipped materials put a NORMAL MAP in that slot (see SkinMaterialBindings) -- so
@@ -553,19 +553,19 @@ public static class WeaponSkinHelper
 		// look entirely -- and worse, it would silently no-op every water binding below, which
 		// is precisely the half-state this whole change exists to prevent. The genuine second
 		// route is by Resources PATH to the SAME shader, in SkinShaderResources.
-		{ 9022, new string[] { WaterShader } },
-		{ 9023, new string[] { WaterShader } },
-		{ 9024, new string[] { WaterShader } },
-		{ 9025, new string[] { WaterShader } },
-		// 9030-9033 [Lava] take the SAME shader. Molten rock is flowing liquid with a black body
+		{ 2025, new string[] { WaterShader } },
+		{ 2026, new string[] { WaterShader } },
+		{ 2027, new string[] { WaterShader } },
+		{ 2028, new string[] { WaterShader } },
+		// 2033-2036 [Lava] take the SAME shader. Molten rock is flowing liquid with a black body
 		// and a hot reflection, which is this shader with three colours changed -- see
 		// LavaBindings. Every argument above applies unchanged, including the OPAQUE one: these
 		// are the same dozens-of-overlapping-parts firearms that rendered hollow under
 		// Glass-Hangar, and this shader writes depth.
-		{ 9030, new string[] { WaterShader } },
-		{ 9031, new string[] { WaterShader } },
-		{ 9032, new string[] { WaterShader } },
-		{ 9033, new string[] { WaterShader } },
+		{ 2033, new string[] { WaterShader } },
+		{ 2034, new string[] { WaterShader } },
+		{ 2035, new string[] { WaterShader } },
+		{ 2036, new string[] { WaterShader } },
 	};
 
 	/// <summary>
@@ -577,24 +577,24 @@ public static class WeaponSkinHelper
 	/// resources.assets, and the build's Resources index lists "items/shared/shaders/
 	/// water_flowing_a". Being in Resources is also why it is certain to have survived shader
 	/// stripping at all -- unlike Glass-Hangar, which no item material references and which the
-	/// 9019 note above had to hedge against.
+	/// 2022 note above had to hedge against.
 	///
 	/// So this reaches the IDENTICAL asset by a second mechanism, which is the only kind of
 	/// fallback worth having when the alternative would silently change what the skin looks like.
 	/// </summary>
 	public static readonly Dictionary<int, string> SkinShaderResources = new Dictionary<int, string>
 	{
-		{ 9022, WaterShaderPath },
-		{ 9023, WaterShaderPath },
-		{ 9024, WaterShaderPath },
-		{ 9025, WaterShaderPath },
+		{ 2025, WaterShaderPath },
+		{ 2026, WaterShaderPath },
+		{ 2027, WaterShaderPath },
+		{ 2028, WaterShaderPath },
 		// [Lava] gets the same second route, and it is not optional bookkeeping: these skins have
 		// no painted art to fall back on, so a Shader.Find miss without this entry would leave
 		// them rendering fully STOCK -- not "a bit wrong", but the base weapon.
-		{ 9030, WaterShaderPath },
-		{ 9031, WaterShaderPath },
-		{ 9032, WaterShaderPath },
-		{ 9033, WaterShaderPath },
+		{ 2033, WaterShaderPath },
+		{ 2034, WaterShaderPath },
+		{ 2035, WaterShaderPath },
+		{ 2036, WaterShaderPath },
 	};
 
 	// ------------------------------------------------- extra per-skin material bindings
@@ -753,7 +753,7 @@ public static class WeaponSkinHelper
 	};
 
 	/// <summary>
-	/// The [Lava] material -- "moltencore", ids 9030-9033. Same shader as [Watery], same four
+	/// The [Lava] material -- "moltencore", ids 2033-2036. Same shader as [Watery], same four
 	/// textures, THREE COLOURS APART. Nothing else differs, and that is the whole design.
 	///
 	/// It works because _MainTex on this shader is a NORMAL MAP, not albedo (see WaterBindings).
@@ -790,7 +790,7 @@ public static class WeaponSkinHelper
 	/// NO SkinFlames ENTRY, deliberately and by explicit decision: lava ships BARE so QA judges
 	/// the colour treatment on its own. Do not "finish" this set by adding fire to it -- the
 	/// fire's absence is the thing being tested. (Note also that the flame overlay would land on
-	/// the same 3.9%-coverage / MAE 1.59 measurement recorded in SkinFlames for 9022, since these
+	/// the same 3.9%-coverage / MAE 1.59 measurement recorded in SkinFlames for 2025, since these
 	/// sit on the same four base weapons.)
 	///
 	/// NO SkinTextures ENTRY EITHER, and this needs no art on disk. ApplyToWeapon reads
@@ -836,7 +836,7 @@ public static class WeaponSkinHelper
 	};
 
 	/// <summary>
-	/// The icy glass material for 9020 AWP [Permafrost] and 9021 Icebreaker.
+	/// The icy glass material for 2023 AWP [Permafrost] and 2024 Icebreaker.
 	///
 	/// THIS TABLE, NOT THEIR .jpg FILES, IS THE ONLY THING THAT CAN CHANGE HOW THESE TWO LOOK,
 	/// and that is the finding this round paid for. The request was "keep the transparency, make
@@ -868,7 +868,7 @@ public static class WeaponSkinHelper
 	///
 	///   * Glass-Hangar's Properties block advertises _MainTex as "Base (RGB) Trans (A)". It
 	///     lies. Alpha is unread and transparency comes from RED. This is very likely the real
-	///     reason 9019 Bloodglass was wrong for five attempts: a red skin is exactly the one
+	///     reason 2022 Bloodglass was wrong for five attempts: a red skin is exactly the one
 	///     whose red channel is high everywhere, i.e. the one this shader renders nearly opaque
 	///     and nearly unlit.
 	///
@@ -912,7 +912,7 @@ public static class WeaponSkinHelper
 	};
 
 	/// <summary>
-	/// 9035 / 9036 -- "glassy look-through but not shiny". The QA brief for the matte variants.
+	/// 2038 / 2039 -- "glassy look-through but not shiny". The QA brief for the matte variants.
 	///
 	/// THE SHINE AND THE TRANSPARENCY ARE DIFFERENT TERMS, which is why this is two numbers and
 	/// not an art change. The shipped Glass-Hangar program, transcribed from the client's own
@@ -937,16 +937,16 @@ public static class WeaponSkinHelper
 	///
 	/// THIS IS THE SAME KNOB BLOODGLASS SITS ON, at the other end. Every see-through skin in the
 	/// file is one number apart, which is worth seeing as a ladder before anyone re-tunes:
-	///     9019 Bloodglass   _ReflectColor 0.95 / 0.55 / 0.52   warm, strong gloss (SkinReflectTints)
+	///     2022 Bloodglass   _ReflectColor 0.95 / 0.55 / 0.52   warm, strong gloss (SkinReflectTints)
 	///     icy default       0.55 / 0.75 / 0.95   cool, strong gloss (ApplyShaderOverride fallback)
-	///     9020/9021 GlassIce 0.35 / 0.72 / 1.00  cool, medium gloss
-	///     9035/9036 (here)  0.04 / 0.06 / 0.08   gloss essentially off
+	///     2023/2024 GlassIce 0.35 / 0.72 / 1.00  cool, medium gloss
+	///     2038/2039 (here)  0.04 / 0.06 / 0.08   gloss essentially off
 	/// So "glassy but not shiny" is not a different technique from Bloodglass -- it is Bloodglass's
 	/// mechanism with the gloss term turned down. The alpha on _ReflectColor is NOT part of this:
 	/// the compiled program multiplies only .xyz, so that channel is dead on this shader and the
 	/// 0.08 / 0.502 values scattered through the file are inert.
 	///
-	/// _Color.a stays at 1.0 -- the same as 9020/9021. The brief was about shine, not about
+	/// _Color.a stays at 1.0 -- the same as 2023/2024. The brief was about shine, not about
 	/// transparency, and the see-through is already what the team wanted. If they ask for MORE
 	/// see-through later, _Color.a is the knob, and it is independent of everything above.
 	/// </summary>
@@ -983,7 +983,7 @@ public static class WeaponSkinHelper
 	///
 	/// All four [Watery] skins share ONE instance rather than four copies: they differ only in
 	/// which weapon they sit on, and four copies of the same numbers would only be four things
-	/// to keep in sync -- the same reasoning as 9018 sharing 9017's texture.
+	/// to keep in sync -- the same reasoning as 2021 sharing 2020's texture.
 	/// </summary>
 	public static readonly Dictionary<int, MaterialBindings> SkinMaterialBindings = new Dictionary<int, MaterialBindings>
 	{
@@ -991,23 +991,23 @@ public static class WeaponSkinHelper
 		// the same shader on the same kind of base, and two copies of two colours would only be
 		// two things to keep in sync. Note these two ALSO have painted art -- unlike [Lava], they
 		// do not need this entry to qualify as skins at all; it only changes their palette.
-		{ 9020, GlassIceBindings },
-		{ 9021, GlassIceBindings },
+		{ 2023, GlassIceBindings },
+		{ 2024, GlassIceBindings },
 		// The matte variants. Same shader, same art, gloss term off -- see GlassMatteBindings.
-		{ 9035, GlassMatteBindings },
-		{ 9036, GlassMatteBindings },
-		{ 9022, WaterBindings },
-		{ 9023, WaterBindings },
-		{ 9024, WaterBindings },
-		{ 9025, WaterBindings },
+		{ 2038, GlassMatteBindings },
+		{ 2039, GlassMatteBindings },
+		{ 2025, WaterBindings },
+		{ 2026, WaterBindings },
+		{ 2027, WaterBindings },
+		{ 2028, WaterBindings },
 		// The [Lava] set, on the same four base weapons and sharing one instance for the same
-		// reason. This entry is also what QUALIFIES 9030-9033 as skins at all: they register no
+		// reason. This entry is also what QUALIFIES 2033-2036 as skins at all: they register no
 		// painted texture, and ApplyToWeapon's guard at :1111 admits a skin with bindings but no
 		// art precisely so a set like this one can exist.
-		{ 9030, LavaBindings },
-		{ 9031, LavaBindings },
-		{ 9032, LavaBindings },
-		{ 9033, LavaBindings },
+		{ 2033, LavaBindings },
+		{ 2034, LavaBindings },
+		{ 2035, LavaBindings },
+		{ 2036, LavaBindings },
 	};
 
 	/// <summary>
@@ -1022,14 +1022,14 @@ public static class WeaponSkinHelper
 	/// <summary>
 	/// Per-skin tint for Glass-Hangar's cubemap reflection term. Absent = the icy default.
 	///
-	/// Exists because 9019 Bloodglass rendered BLUE in game despite a red texture: the single
+	/// Exists because 2022 Bloodglass rendered BLUE in game despite a red texture: the single
 	/// hardcoded cool tint was laying a blue cast over every see-through skin, which is
 	/// invisible on the ice ones and fatal on a red one.
 	/// </summary>
 	public static readonly Dictionary<int, Color> SkinReflectTints = new Dictionary<int, Color>
 	{
 		// Warm, so the reflection term reinforces the red instead of fighting it.
-		{ 9019, new Color(0.95f, 0.55f, 0.52f, 0.08f) },
+		{ 2022, new Color(0.95f, 0.55f, 0.52f, 0.08f) },
 	};
 
 	/// <summary>
@@ -1061,7 +1061,7 @@ public static class WeaponSkinHelper
 		// is full strength, values above 0.5 clamp and do nothing, and 0.35 would scale the whole
 		// add to 0.70. Shipping at 0.5 because the new two-tongue sheet already lands at ~60% of
 		// the old sheet's energy; drop this one number to 0.35f if it still reads too hot in game.
-		{ 9017, new Color(0.13f, 0.28f, 0.50f, 0.5f) },
+		{ 2020, new Color(0.13f, 0.28f, 0.50f, 0.5f) },
 		// Near-neutral white with a slight warm bias: the brief for this skin is WHITE flames
 		// over red glass, so it must not be tinted red (they would vanish into the blade) and
 		// must not keep the blue-dominant Surface default (which is what made it look blue).
@@ -1071,7 +1071,7 @@ public static class WeaponSkinHelper
 		// paints the whole weapon, so an additive wash of ~0.5 per channel over a blade
 		// sitting at brightness 69 buries the red entirely. The flames still read as white
 		// fire because they are white in the SHEET; the tint only sets how hard they burn.
-		{ 9019, new Color(0.11f, 0.09f, 0.09f, 0.5f) },
+		{ 2022, new Color(0.11f, 0.09f, 0.09f, 0.5f) },
 		// 2026-08-17, SECOND PASS. BLUE, not white -- rejected in game, and the reason is the blend
 		// mode rather than the values.
 		//
@@ -1095,7 +1095,7 @@ public static class WeaponSkinHelper
 		// brightest surface they must burn over, never against the preview's backdrop.
 		//
 		// So the energy moves into the one channel the weapon has not already saturated. This is
-		// exactly what 9017 does and why it reads as white-hot fire on a pale blue blade: the SHEET
+		// exactly what 2020 does and why it reads as white-hot fire on a pale blue blade: the SHEET
 		// is white, and the tint only decides how hard it burns. Blue tint does NOT mean blue fire.
 		//   peak add, one strand : 0.26 / 0.56 / 1.00
 		//   peak add, doubled    : 0.52 / 1.12 / 2.00
@@ -1116,7 +1116,7 @@ public static class WeaponSkinHelper
 		// The rim is the effect; the body is meant to be a haze. If it needs more in game, raise
 		// ALPHA in 0.05 steps and judge the RIM, then the shell scale in SkinShellScale -- in that
 		// order, because scale changes the silhouette and alpha does not.
-		// 9020/9021 removed with their flames -- see the note in SkinFlames.
+		// 2023/2024 removed with their flames -- see the note in SkinFlames.
 	};
 
 	/// <summary>
@@ -1160,7 +1160,7 @@ public static class WeaponSkinHelper
 		//   VRepeat omitted    -> the ONE field that does fall back on its own, at :1682, because
 		//                         it is read through a `> 0f` guard. Write it anyway.
 
-		// ---- 9017 Frostbound. "Not line-looking", the geometry half of it.
+		// ---- 2020 Frostbound. "Not line-looking", the geometry half of it.
 		//
 		// The line look had an arithmetic cause, not an aesthetic one. U runs edge-to-edge across
 		// ONE ribbon, V runs along span/VRepeat, so at the shipped values the sheet is squashed
@@ -1192,10 +1192,10 @@ public static class WeaponSkinHelper
 		// 1.5 * 0.05157 = 0.0774, 3.4x today's. Twist drops 2.1 -> 1.4 so the tongues read as
 		// fire winding up the blade rather than as thread wound round it. Start stays 0.30 so the
 		// grip and the player's hand stay clear.
-		{ 9017, new SleeveSpec { RadiusMult = 2.0f, Ribbons = 3, RibbonArc = 1.5f,
+		{ 2020, new SleeveSpec { RadiusMult = 2.0f, Ribbons = 3, RibbonArc = 1.5f,
 		                         Twist = 1.4f, Start = 0.30f, MaxLenFrac = 0.048f, VRepeat = 2f } },
 
-		// ---- 9020 AWP [Permafrost] and 9021 Icebreaker. The reason the earlier attempt "looked
+		// ---- 2023 AWP [Permafrost] and 2024 Icebreaker. The reason the earlier attempt "looked
 		// worse than none", and the fix.
 		//
 		// THE OLD DEFAULTS PUT THE SLEEVE INSIDE THE GUN. The radius clamp is calibrated for a
@@ -1264,12 +1264,12 @@ public static class WeaponSkinHelper
 		// of the hand. Widening the arc does not move either, because arc grows around the axis and
 		// Start is along it. VRepeat 3 on both: shorter, more frequent tongues suit a 0.67-0.73 span
 		// better than the katana's 2.
-		{ 9020, new SleeveSpec { RadiusMult = 2.1f, Ribbons = 3, RibbonArc = 1.30f,
+		{ 2023, new SleeveSpec { RadiusMult = 2.1f, Ribbons = 3, RibbonArc = 1.30f,
 		                         Twist = 1.2f, Start = 0.55f, MaxLenFrac = 0.068f, VRepeat = 3f } },
-		{ 9021, new SleeveSpec { RadiusMult = 2.0f, Ribbons = 3, RibbonArc = 0.95f,
+		{ 2024, new SleeveSpec { RadiusMult = 2.0f, Ribbons = 3, RibbonArc = 0.95f,
 		                         Twist = 1.0f, Start = 0.38f, MaxLenFrac = 0.118f, VRepeat = 3f } },
 
-		// NOT REACHABLE FROM HERE, and every one of them would move 9017 too if edited: RINGS 22,
+		// NOT REACHABLE FROM HERE, and every one of them would move 2020 too if edited: RINGS 22,
 		// ARC_SEGMENTS 5, TIP_SCALE 0.55, MIN_LEN_FRAC 0.025 are file-level constants. Every value
 		// above was deliberately kept inside the seven overridable fields for that reason.
 		// ARC_SEGMENTS in particular is not worth a field: rendered at 5 vs 8 vs 10 with everything
@@ -1279,10 +1279,10 @@ public static class WeaponSkinHelper
 	public static readonly Dictionary<int, string> SkinFlames = new Dictionary<int, string>
 	{
 		// 2026-08-17. A SECOND FLAME SHEET, and the separate file is the point: the old one is
-		// still named by 9018, 9019 and 9026-9029, so editing it in place would have changed all
+		// still named by 2021, 2022 and 2029-2032, so editing it in place would have changed all
 		// seven. Do NOT "tidy" this back to the shared name.
 		//
-		// Shared by the three HELIX skins (9017 here, 9020/9021 below) and by nothing else -- the
+		// Shared by the three HELIX skins (2020 here, 2023/2024 below) and by nothing else -- the
 		// split is by MODE, not by look. A helix samples U edge-to-edge across a ribbon a few
 		// centimetres wide; a Surface overlay samples the weapon's own UV islands. The two want
 		// opposite things from the same image, which is why one sheet could never serve both.
@@ -1313,17 +1313,17 @@ public static class WeaponSkinHelper
 		// deliberately: LoadSkinFile tries "<stem>.jpg" BEFORE the name asked for, so a jpg twin
 		// would silently win, and an .alpha.png twin would be merged into RGBA and then dim the
 		// flames per texel through Blend SrcAlpha One.
-		{ 9017, "9017_Frostbound_BlueFlames.png" },
-		// 9018 Frostfire deliberately KEEPS the shared sheet. It is SURFACE mode, where the
+		{ 2020, "2020_Frostbound_BlueFlames.png" },
+		// 2021 Frostfire deliberately KEEPS the shared sheet. It is SURFACE mode, where the
 		// overlay samples the WEAPON's own UVs rather than a ribbon's -- so the two-tongue layout
 		// above, which is calibrated to a 0.077-wide strip, means nothing there, and the request
 		// that produced the new sheet named Frostbound. One line to change if that is wanted.
-		{ 9018, "9017_Frostbound_Flames.png" },
+		{ 2021, "2020_Frostbound_Flames.png" },
 		// Shares the flame sheet with the ice skins on purpose: it is generic white fire on pure
 		// black that tiles vertically, and white fire over red glass is the contrast that sells
 		// this skin. Red flames on a red blade would mostly disappear.
-		{ 9019, "9017_Frostbound_Flames.png" },
-		// 2026-08-17. 9020 and 9021 GAIN outer white flames, on the third attempt.
+		{ 2022, "2020_Frostbound_Flames.png" },
+		// 2026-08-17. 2023 and 2024 GAIN outer white flames, on the third attempt.
 		//
 		// Surface is still impossible on them -- AWP.asset and Death_Hammer.asset are both
 		// m_IsReadable: 0, so the overlay cannot copy the weapon's geometry -- and their
@@ -1337,33 +1337,33 @@ public static class WeaponSkinHelper
 		// and the per-skin SleeveSpec entries this table's note pointed at are what made it
 		// expressible.
 		//
-		// THEY TAKE 9017's NEW SHEET, not the shared one, and this was decided at the preview
+		// THEY TAKE 2020's NEW SHEET, not the shared one, and this was decided at the preview
 		// rather than assumed. Rendered on the shared sheet with the geometry above, both weapons
 		// came back as a BUNDLE OF PARALLEL HAIRLINES lying along the barrel -- visibly the same
 		// "five narrow strands read as combed fibre" this table already records as rejected, just
 		// with the strands now outside the gun instead of inside it. The geometry fix alone was
-		// not enough; the sheet was the other half here exactly as it was on 9017.
+		// not enough; the sheet was the other half here exactly as it was on 2020.
 		//
-		// The sheet is painted WHITE (see the note on 9017 above) and SkinFlameTints does the
-		// colour, so these two get white fire from the same file that gives 9017 blue. The name
+		// The sheet is painted WHITE (see the note on 2020 above) and SkinFlameTints does the
+		// colour, so these two get white fire from the same file that gives 2020 blue. The name
 		// records which skin commissioned it, not what colour it is.
-		// 2026-08-17. 9020 and 9021 REMOVED FROM FLAMES ALTOGETHER, and this is the third and
+		// 2026-08-17. 2023 and 2024 REMOVED FROM FLAMES ALTOGETHER, and this is the third and
 		// final rejection -- do not add a fourth. Helix was judged in game twice ("wire
 		// scratches on the receiver", then "no flames at all, just lines"), and Shell was
 		// built and judged after that. QA then changed direction entirely: what they asked for
-		// instead is a matte see-through variant, which shipped as 9035/9036 and involves no
+		// instead is a matte see-through variant, which shipped as 2038/2039 and involves no
 		// overlay at all. These two are back to the state they originally shipped in, which is
 		// the state nobody has ever complained about.
 		// The SkinSleeves and SkinShellScale entries are LEFT IN PLACE deliberately: they cost
 		// nothing when unreferenced and they are the record of what was tried and rejected.
-		// 9022-9025 [Watery] have NO flames. REMOVED 2026-08-17 -- they were registered here,
+		// 2025-2028 [Watery] have NO flames. REMOVED 2026-08-17 -- they were registered here,
 		// and in SkinFlameModes, from the day the set shipped. DO NOT RE-ADD THEM.
 		//
 		// They produced nothing in game, but only by accident, and that accident has just been
 		// fixed. ApplyFlames used to enumerate MeshFilter, and MachineGun.prefab has none -- its
-		// body is a single SkinnedMeshRenderer -- so the loop body never executed once for 9022
+		// body is a single SkinnedMeshRenderer -- so the loop body never executed once for 2025
 		// and the registration was invisible. ApplyFlames now enumerates Renderer (see the
-		// measurement there), so on the next build 9022 WOULD have started burning. A skin that
+		// measurement there), so on the next build 2025 WOULD have started burning. A skin that
 		// ships fire-free because of a bug is not a decision; this is the decision.
 		//
 		// Two reasons, in order of weight:
@@ -1372,20 +1372,20 @@ public static class WeaponSkinHelper
 		//      explain away. These four bind CMune/Water/Opaque_Flowing and are named [Watery];
 		//      flowing water with flames licking over it reads as a bug report, not as a look.
 		//
-		//   2. It was barely visible anyway, MEASURED rather than asserted: on 9022 the overlay
+		//   2. It was barely visible anyway, MEASURED rather than asserted: on 2025 the overlay
 		//      touched 3.9% of the weapon's pixels at MAE 1.59. The cause is structural, not
-		//      tuning -- 9022 has no SkinFlameTints entry, so it falls to the dim Surface default
+		//      tuning -- 2025 has no SkinFlameTints entry, so it falls to the dim Surface default
 		//      (0.18, 0.26, 0.32) at :1667, a peak add of 0.36/0.52/0.64 laid over a water
 		//      surface that is already bright and already moving. Making it visible would mean a
 		//      hot per-skin tint, which is reason 1 again but louder.
 		//
-		// 9026-9029 [Frosted] below deliberately KEEP theirs. Frost over fire is the language
-		// 9018 Frostfire already ships, and 9026 is the skin that GAINS visible flames from the
+		// 2029-2032 [Frosted] below deliberately KEEP theirs. Frost over fire is the language
+		// 2021 Frostfire already ships, and 2029 is the skin that GAINS visible flames from the
 		// Renderer fix -- that one is the point of the fix, not a casualty of it.
-		{ 9026, "9017_Frostbound_Flames.png" },
-		{ 9027, "9017_Frostbound_Flames.png" },
-		{ 9028, "9017_Frostbound_Flames.png" },
-		{ 9029, "9017_Frostbound_Flames.png" },
+		{ 2029, "2020_Frostbound_Flames.png" },
+		{ 2030, "2020_Frostbound_Flames.png" },
+		{ 2031, "2020_Frostbound_Flames.png" },
+		{ 2032, "2020_Frostbound_Flames.png" },
 	};
 
 	// Shop icons. ProxyItem loads the BASE weapon's "<prefabPath>-Icon" from Resources and we
@@ -1400,19 +1400,19 @@ public static class WeaponSkinHelper
 	// 115 unambiguously directional stock icons do.
 	public static readonly Dictionary<int, string> IconTextures = new Dictionary<int, string>
 	{
-		{ 9007, "9007_PlasmaBat_Icon.png" },
-		{ 9008, "9008_InfernoMG_Icon.png" },
-		{ 9009, "9009_CryoStrike_Icon.png" },
-		{ 9010, "9010_SolarCannon_Icon.png" },
-		{ 9011, "9011_HazardousShotgun_Icon.png" },
-		{ 9012, "9012_VoidAmethyst_Icon.png" },
-		{ 9013, "9013_Bloodhound_Icon.png" },
-		{ 9014, "9014_AbyssalLeviathan_Icon.png" },
-		{ 9015, "9015_NeonCircuit_Icon.png" },
-		{ 9016, "9016_CrimsonDragon_Icon.png" },
-		{ 9017, "9017_Frostbound_Icon.png" },
-		{ 9018, "9018_Frostfire_Icon.png" },
-		{ 9019, "9019_Bloodglass_Icon.png" },
+		{ 2010, "2010_PlasmaBat_Icon.png" },
+		{ 2011, "2011_InfernoMG_Icon.png" },
+		{ 2012, "2012_CryoStrike_Icon.png" },
+		{ 2013, "2013_SolarCannon_Icon.png" },
+		{ 2014, "2014_HazardousShotgun_Icon.png" },
+		{ 2015, "2015_VoidAmethyst_Icon.png" },
+		{ 2016, "2016_Bloodhound_Icon.png" },
+		{ 2017, "2017_AbyssalLeviathan_Icon.png" },
+		{ 2018, "2018_NeonCircuit_Icon.png" },
+		{ 2019, "2019_CrimsonDragon_Icon.png" },
+		{ 2020, "2020_Frostbound_Icon.png" },
+		{ 2021, "2021_Frostfire_Icon.png" },
+		{ 2022, "2022_Bloodglass_Icon.png" },
 		// Rendered once the mesh reader learned to decode COMPRESSED meshes. The AWP and
 		// Death Hammer store their geometry quantised under m_CompressedMesh with an empty
 		// _typelessdata, unlike every weapon the icon pipeline had handled before, so these
@@ -1425,65 +1425,65 @@ public static class WeaponSkinHelper
 		// program never samples the painted RGB at all -- so the old icons showed a surface the
 		// player has never seen. The current ones render the shader the client actually runs,
 		// including its alpha. A DLL built before 18:58 embeds the OLD bytes under the RIGHT names.
-		{ 9020, "9020_Permafrost_Icon.png" },
-		{ 9021, "9021_Icebreaker_Icon.png" },
-		{ 9035, "9035_AWPMatteGlass_Icon.png" },
-		{ 9036, "9036_IcebreakerMatteGlass_Icon.png" },
-		{ 9038, "9038_AWPClearIce_Icon.png" },
-		{ 9039, "9039_IcebreakerClearIce_Icon.png" },
+		{ 2023, "2023_Permafrost_Icon.png" },
+		{ 2024, "2024_Icebreaker_Icon.png" },
+		{ 2038, "2038_AWPMatteGlass_Icon.png" },
+		{ 2039, "2039_IcebreakerMatteGlass_Icon.png" },
+		{ 2041, "2041_AWPClearIce_Icon.png" },
+		{ 2042, "2042_IcebreakerClearIce_Icon.png" },
 		// The [Gold] set. Icons exist now: three manifest entries were authored in
 		// uberstrike-patcher-workshop (framing inherited by ItemClass -- class 3 takes the
 		// MachineGun camera, class 4 the ShotGun camera, class 5 the Sniper camera, the same rule
-		// the 9020/9021 notes state) and the three missing meshes were copied into meshes471,
+		// the 2023/2024 notes state) and the three missing meshes were copied into meshes471,
 		// because no skin had ever existed on M4A1, AK-47 or SPAS-12.
-		{ 9040, "9040_M4A1Gold_Icon.png" },
-		{ 9041, "9041_AK47Gold_Icon.png" },
-		{ 9042, "9042_SPAS12Gold_Icon.png" },
-		{ 9043, "9043_AWPGold_Icon.png" },
-		{ 9044, "9044_M4A1Chrome_Icon.png" },
-		{ 9045, "9045_AK47Chrome_Icon.png" },
-		{ 9046, "9046_SPAS12Chrome_Icon.png" },
-		{ 9047, "9047_AWPChrome_Icon.png" },
-		{ 9048, "9048_M4A1Damascus_Icon.png" },
-		{ 9049, "9049_AK47Damascus_Icon.png" },
-		{ 9050, "9050_SPAS12Damascus_Icon.png" },
-		{ 9051, "9051_AWPDamascus_Icon.png" },
-		{ 9056, "9056_M4A1Carbon_Icon.png" },
-		{ 9057, "9057_AK47Carbon_Icon.png" },
-		{ 9058, "9058_SPAS12Carbon_Icon.png" },
-		{ 9059, "9059_AWPCarbon_Icon.png" },
-		{ 9060, "9060_M4A1Tempered_Icon.png" },
-		{ 9061, "9061_AK47Tempered_Icon.png" },
-		{ 9062, "9062_SPAS12Tempered_Icon.png" },
-		{ 9063, "9063_AWPTempered_Icon.png" },
-		{ 9064, "9064_M4A1ChromeMax_Icon.png" },
-		{ 9065, "9065_AK47ChromeMax_Icon.png" },
-		{ 9066, "9066_SPAS12ChromeMax_Icon.png" },
-		{ 9067, "9067_AWPChromeMax_Icon.png" },
-		{ 9037, "9037_FrostSerpent_Icon.png" },
-		{ 9079, "9079_AWPUberverse_Icon.png" },
-		{ 9080, "9080_CyberNeon_Icon.png" },
-		{ 9081, "9081_ToxicVenom_Icon.png" },
-		{ 9082, "9082_MoltenInferno_Icon.png" },
-		{ 9083, "9083_AWPUberverseV1_Icon.png" },   // V1: procedural gas-giants, wide orbit
-		{ 9084, "9084_AWPUberverseV12_Icon.png" },  // V1.2: same worlds, tight orbit
-		{ 9085, "9085_WreckerVoidglass_Icon.png" },
-		{ 9086, "9086_SplattergunPrismSplatter_Icon.png" },
-		{ 9087, "9087_LauncherDragonsMaw_Icon.png" },
+		{ 2043, "2043_M4A1Gold_Icon.png" },
+		{ 2044, "2044_AK47Gold_Icon.png" },
+		{ 2045, "2045_SPAS12Gold_Icon.png" },
+		{ 2046, "2046_AWPGold_Icon.png" },
+		{ 2047, "2047_M4A1Chrome_Icon.png" },
+		{ 2048, "2048_AK47Chrome_Icon.png" },
+		{ 2049, "2049_SPAS12Chrome_Icon.png" },
+		{ 2050, "2050_AWPChrome_Icon.png" },
+		{ 2051, "2051_M4A1Damascus_Icon.png" },
+		{ 2052, "2052_AK47Damascus_Icon.png" },
+		{ 2053, "2053_SPAS12Damascus_Icon.png" },
+		{ 2054, "2054_AWPDamascus_Icon.png" },
+		{ 2055, "2055_M4A1Carbon_Icon.png" },
+		{ 2056, "2056_AK47Carbon_Icon.png" },
+		{ 2057, "2057_SPAS12Carbon_Icon.png" },
+		{ 2058, "2058_AWPCarbon_Icon.png" },
+		{ 2059, "2059_M4A1Tempered_Icon.png" },
+		{ 2060, "2060_AK47Tempered_Icon.png" },
+		{ 2061, "2061_SPAS12Tempered_Icon.png" },
+		{ 2062, "2062_AWPTempered_Icon.png" },
+		{ 2063, "2063_M4A1ChromeMax_Icon.png" },
+		{ 2064, "2064_AK47ChromeMax_Icon.png" },
+		{ 2065, "2065_SPAS12ChromeMax_Icon.png" },
+		{ 2066, "2066_AWPChromeMax_Icon.png" },
+		{ 2040, "2040_FrostSerpent_Icon.png" },
+		{ 2067, "2067_AWPUberverse_Icon.png" },
+		{ 2068, "2068_CyberNeon_Icon.png" },
+		{ 2069, "2069_ToxicVenom_Icon.png" },
+		{ 2070, "2070_MoltenInferno_Icon.png" },
+		{ 2071, "2071_AWPUberverseV1_Icon.png" },   // V1: procedural gas-giants, wide orbit
+		{ 2072, "2072_AWPUberverseV12_Icon.png" },  // V1.2: same worlds, tight orbit
+		{ 2073, "2073_WreckerVoidglass_Icon.png" },
+		{ 2074, "2074_SplattergunPrismSplatter_Icon.png" },
+		{ 2075, "2075_LauncherDragonsMaw_Icon.png" },
 		// Framing inherited per BASE weapon, not chosen: each of these takes the camera of the
-		// shipped skin on the same weapon (9008 for the MG, 9012 sniper, 9013 shotgun, 9014
+		// shipped skin on the same weapon (2011 for the MG, 2015 sniper, 2016 shotgun, 2017
 		// cannon), which is what keeps a family of icons looking like a set. The stock icons
 		// work the same way -- silhouette overlap between variants of one weapon measures
 		// 0.957-0.979 IoU, i.e. one camera per weapon and only the texture changes.
-		{ 9022, "9022_MGWatery_Icon.png" },
-		{ 9023, "9023_SniperWatery_Icon.png" },
-		{ 9024, "9024_ShotgunWatery_Icon.png" },
-		{ 9025, "9025_CannonWatery_Icon.png" },
-		{ 9026, "9026_MGFrosted_Icon.png" },
-		{ 9027, "9027_SniperFrosted_Icon.png" },
-		{ 9028, "9028_ShotgunFrosted_Icon.png" },
-		{ 9029, "9029_CannonFrosted_Icon.png" },
-		// 9030-9033 [Lava]. THIS IS THE ONE TABLE THE [Lava] SET NEEDS ART FOR.
+		{ 2025, "2025_MGWatery_Icon.png" },
+		{ 2026, "2026_SniperWatery_Icon.png" },
+		{ 2027, "2027_ShotgunWatery_Icon.png" },
+		{ 2028, "2028_CannonWatery_Icon.png" },
+		{ 2029, "2029_MGFrosted_Icon.png" },
+		{ 2030, "2030_SniperFrosted_Icon.png" },
+		{ 2031, "2031_ShotgunFrosted_Icon.png" },
+		{ 2032, "2032_CannonFrosted_Icon.png" },
+		// 2033-2036 [Lava]. THIS IS THE ONE TABLE THE [Lava] SET NEEDS ART FOR.
 		//
 		// They deliberately have no SkinTextures entry -- their material is bound from Resources
 		// and their painted texture would be overwritten in the same frame (see LavaBindings).
@@ -1498,12 +1498,12 @@ public static class WeaponSkinHelper
 		// only ever caches a successful load.
 		//
 		// Framing is inherited per BASE weapon exactly as the [Watery]/[Frosted] rows above --
-		// 9008's camera for the MG, 9012's sniper, 9013's shotgun, 9014's cannon.
-		{ 9030, "9030_MGLava_Icon.png" },
-		{ 9031, "9031_SniperLava_Icon.png" },
-		{ 9032, "9032_ShotgunLava_Icon.png" },
-		{ 9033, "9033_CannonLava_Icon.png" },
-		// 9034 Neon Circuit [Black]. This row was WITHHELD for one round and is now registered;
+		// 2011's camera for the MG, 2015's sniper, 2016's shotgun, 2017's cannon.
+		{ 2033, "2033_MGLava_Icon.png" },
+		{ 2034, "2034_SniperLava_Icon.png" },
+		{ 2035, "2035_ShotgunLava_Icon.png" },
+		{ 2036, "2036_CannonLava_Icon.png" },
+		// 2037 Neon Circuit [Black]. This row was WITHHELD for one round and is now registered;
 		// the note is kept as the record of both halves, because the reason it was withheld is a
 		// rule that still holds and the reason it is here now is a fact that can be re-checked.
 		//
@@ -1518,23 +1518,23 @@ public static class WeaponSkinHelper
 		// have -- quiet being the problem: the shop showed a generic class icon and logged nothing.
 		//
 		// REGISTERED 2026-08-17 18:58, because the file now exists and was verified before the row
-		// was added: WeaponSkins/9034_NeonCircuitBlack_Icon.png, 48x48 RGBA, 3100 bytes, alpha
+		// was added: WeaponSkins/2037_NeonCircuitBlack_Icon.png, 48x48 RGBA, 3100 bytes, alpha
 		// (255,255) with 0 partial-alpha pixels, i.e. opaque as the convention above requires.
 		//
 		// It was rendered INSIDE a permitted repo, which is what changed: webgl-skins-rendering's
 		// tools/render_premium_icons.py CALLS render_weapon_icon.render() rather than
-		// reimplementing it, and supplies 9015's manifest entry with 9034's texture. So the framing
-		// is inherited per BASE WEAPON exactly as every row above -- 9015's MachineGun camera, not
-		// 9008's, though their framing keys are identical, so that a future re-tune moves both Neon
-		// Circuits together. The one value chosen rather than fetched is a LIGHTING lift: 9034's
-		// body measures mean luminance 30.6 against 9015's 133.1 on the same mesh at the same
-		// camera, close enough to the plate's own 27-34 that at 9015's rig only 75.8% of the
+		// reimplementing it, and supplies 2018's manifest entry with 2037's texture. So the framing
+		// is inherited per BASE WEAPON exactly as every row above -- 2018's MachineGun camera, not
+		// 2011's, though their framing keys are identical, so that a future re-tune moves both Neon
+		// Circuits together. The one value chosen rather than fetched is a LIGHTING lift: 2037's
+		// body measures mean luminance 30.6 against 2018's 133.1 on the same mesh at the same
+		// camera, close enough to the plate's own 27-34 that at 2018's rig only 75.8% of the
 		// footprint cleared the plate and the barrel and receiver read as absent. Raised with
 		// ambient, not texture gain; the shipped skin's art is untouched.
 		//
 		// render_premium_icons.py --selftest re-checks THIS row by parsing this dictionary, and
-		// fails loudly ("IconTextures[9034] NOT REGISTERED") if it is ever dropped again.
-		{ 9034, "9034_NeonCircuitBlack_Icon.png" },
+		// fails loudly ("IconTextures[2037] NOT REGISTERED") if it is ever dropped again.
+		{ 2037, "2037_NeonCircuitBlack_Icon.png" },
 	};
 
 	// Optional per item tracer: gives a weapon a travelling muzzle to hitpoint beam it
@@ -1558,7 +1558,7 @@ public static class WeaponSkinHelper
 	{
 		// Only ParticleLance and FusionLance set UseTrailrendererForTrail, so ParticleLance
 		// is what actually produces a beam. The stock SniperRifleDefault is muzzle flash only.
-		{ 9012, new TracerSpec {
+		{ 2015, new TracerSpec {
 			Effect  = ParticleConfigurationType.ParticleLance,
 			Start   = new Color(1.00f, 0.45f, 0.85f, 1f),
 			End     = new Color(1.00f, 0.15f, 0.60f, 1f),
@@ -1622,7 +1622,7 @@ public static class WeaponSkinHelper
 
 	public static readonly Dictionary<int, MuzzleTintSpec> MuzzleTints = new Dictionary<int, MuzzleTintSpec>
 	{
-		// 9020 AWP [Permafrost]. AWP_Roughed has NO muzzle flash quad at all -- there is no
+		// 2023 AWP [Permafrost]. AWP_Roughed has NO muzzle flash quad at all -- there is no
 		// MuzzleFlash script anywhere on it. Its muzzle FX is one Light plus four particle
 		// systems: Sfx (FireBall.mat), Spark (Flare_Flare.mat), AWPGunSmoke and AWPBigSmoke.
 		//
@@ -1641,16 +1641,16 @@ public static class WeaponSkinHelper
 		// blue comes out teal. Channels are compensated roughly target/texture. Unity allows >1
 		// for colours. This is a starting point for tuning in the real client, not a measured
 		// result -- see the note in ApplyMuzzleTint about why the studio cannot preview it.
-		{ 9020, new MuzzleTintSpec {
+		{ 2023, new MuzzleTintSpec {
 			HasLight        = true,
 			LightColour     = new Color(0.45f, 0.72f, 1.00f, 1f),
 			HasParticles    = true,
 			ParticleTint    = new Color(0.20f, 0.62f, 1.70f, 1f),
 			ParticleObjects = new string[] { "Sfx", "Spark" },
 			TintRenderers   = new string[] { "SplatterTrail" } } },
-		// 9037 asks for the same blue muzzle FX, and it is the SAME base weapon (AWP_Roughed), so
+		// 2040 asks for the same blue muzzle FX, and it is the SAME base weapon (AWP_Roughed), so
 		// the same object names and the same two levers apply. Written out rather than sharing
-		// 9020's instance because these are two independent skins that happen to agree today --
+		// 2023's instance because these are two independent skins that happen to agree today --
 		// tuning one must not silently move the other.
 		// 2026-08-17, extended to the rest of the cold set. Requested: the two other AWP skins,
 		// Cryo Strike, Sniper [Watery], Shotgun [Watery] and Icebreaker.
@@ -1660,35 +1660,35 @@ public static class WeaponSkinHelper
 		// on these: the generic component-type pass finds each weapon's own effect renderers, and
 		// naming children per weapon is exactly what did not scale.
 		//
-		// 9021 Icebreaker is the honest partial. DeathHammer's muzzle visual is a MuzzleFlash,
+		// 2024 Icebreaker is the honest partial. DeathHammer's muzzle visual is a MuzzleFlash,
 		// whose shared material has an ANIMATED alpha, so it is excluded by the pass above and
 		// its flash stays stock. Its light and any trail still tint. Do not "fix" this by adding
 		// MuzzleFlash to the include list -- that is commit 63a9776's regression, and the flash
 		// disappears entirely rather than turning blue.
-		{ 9009, new MuzzleTintSpec {   // Cryo Strike        (PaintSniper)
+		{ 2012, new MuzzleTintSpec {   // Cryo Strike        (PaintSniper)
 			HasLight = true, LightColour = new Color(0.45f, 0.72f, 1.00f, 1f),
 			HasParticles = true, ParticleTint = new Color(0.20f, 0.62f, 1.70f, 1f) } },
-		{ 9021, new MuzzleTintSpec {   // Icebreaker         (DeathHammer -- light + trail only)
+		{ 2024, new MuzzleTintSpec {   // Icebreaker         (DeathHammer -- light + trail only)
 			HasLight = true, LightColour = new Color(0.45f, 0.72f, 1.00f, 1f),
 			HasParticles = true, ParticleTint = new Color(0.20f, 0.62f, 1.70f, 1f) } },
-		{ 9023, new MuzzleTintSpec {   // Sniper [Watery]    (PaintSniper)
+		{ 2026, new MuzzleTintSpec {   // Sniper [Watery]    (PaintSniper)
 			HasLight = true, LightColour = new Color(0.45f, 0.72f, 1.00f, 1f),
 			HasParticles = true, ParticleTint = new Color(0.20f, 0.62f, 1.70f, 1f) } },
-		{ 9024, new MuzzleTintSpec {   // Shotgun [Watery]   (PaintShotty)
+		{ 2027, new MuzzleTintSpec {   // Shotgun [Watery]   (PaintShotty)
 			HasLight = true, LightColour = new Color(0.45f, 0.72f, 1.00f, 1f),
 			HasParticles = true, ParticleTint = new Color(0.20f, 0.62f, 1.70f, 1f) } },
-		{ 9035, new MuzzleTintSpec {   // AWP [Matte Glass]  (AWP_Roughed)
+		{ 2038, new MuzzleTintSpec {   // AWP [Matte Glass]  (AWP_Roughed)
 			HasLight = true, LightColour = new Color(0.45f, 0.72f, 1.00f, 1f),
 			HasParticles = true, ParticleTint = new Color(0.20f, 0.62f, 1.70f, 1f),
 			TintRenderers = new string[] { "SplatterTrail" } } },
-		{ 9037, new MuzzleTintSpec {
+		{ 2040, new MuzzleTintSpec {
 			HasLight        = true,
 			LightColour     = new Color(0.45f, 0.72f, 1.00f, 1f),
 			HasParticles    = true,
 			ParticleTint    = new Color(0.20f, 0.62f, 1.70f, 1f),
 			ParticleObjects = new string[] { "Sfx", "Spark" },
 			TintRenderers   = new string[] { "SplatterTrail" } } },
-		{ 9079, new MuzzleTintSpec {   // AWP [Uberverse]  (AWP_Roughed) -- CYAN muzzle
+		{ 2067, new MuzzleTintSpec {   // AWP [Uberverse]  (AWP_Roughed) -- CYAN muzzle
 			HasLight        = true,
 			LightColour     = new Color(0.20f, 0.85f, 1.00f, 1f),
 			HasParticles    = true,
@@ -1696,8 +1696,8 @@ public static class WeaponSkinHelper
 			ParticleObjects = new string[] { "Sfx", "Spark" },
 			TintRenderers   = new string[] { "SplatterTrail" } } },
 
-		// 9021 Icebreaker IS DELIBERATELY ABSENT, and this is the record of why -- it was asked
-		// for in the same breath as 9020 and is a completely different problem.
+		// 2024 Icebreaker IS DELIBERATELY ABSENT, and this is the record of why -- it was asked
+		// for in the same breath as 2023 and is a completely different problem.
 		//
 		// DeathHammer's muzzle FX is ONLY a flash quad: SGMuzzleFlash20, a MeshRenderer plus an
 		// Animation plus the MuzzleFlash script. No Light, no ParticleSystem. So neither lever
@@ -1705,7 +1705,7 @@ public static class WeaponSkinHelper
 		// it becomes dangerous:
 		//
 		//   * SGMuzzleFlash.mat is referenced by FOUR prefabs, and one of them is the STOCK
-		//     ShotGun (PaintShotty, the base of skins 9011/9013/9024/9028/9032). A sharedMaterial
+		//     ShotGun (PaintShotty, the base of skins 2014/2016/2027/2031/2035). A sharedMaterial
 		//     write leaks blue onto every player's stock shotgun.
 		//
 		//   * A `.material` write reproduces a bug this file has already paid for twice. The
@@ -1826,7 +1826,7 @@ public static class WeaponSkinHelper
 			// so a mask of mostly zero alpha leaves it invisible as intended, while a fully
 			// opaque texture turns it into a visible square. Losing the alpha here shows up
 			// on the flash long before it is noticeable on the gun body.
-			// Uberverse (9079) is a starfield-heavy skin whose fine detail aliases/shimmers under
+			// Uberverse (2067) is a starfield-heavy skin whose fine detail aliases/shimmers under
 			// camera motion and scope zoom WITHOUT mipmaps. Enable mipmaps + trilinear for it ONLY,
 			// so the other skins keep their exact shipped (mip-free) behaviour unchanged.
 			bool uberverseMips = stem != null && stem.IndexOf("Uberverse", StringComparison.OrdinalIgnoreCase) >= 0;
@@ -1912,9 +1912,9 @@ public static class WeaponSkinHelper
 			return;
 
 		// Independent of diffuse delivery: attaches the AWP [Uberverse] orbital-system FX for
-		// item 9079, and removes it on pooled-root skin changes. Safe no-op for every other id.
+		// item 2067, and removes it on pooled-root skin changes. Safe no-op for every other id.
 		UberverseWeaponEffect.Apply(weaponRoot, itemId);
-		// V1 (9083) and V1.2 (9084): the earlier procedural-sphere Uberverse FX, kept selectable
+		// V1 (2071) and V1.2 (2072): the earlier procedural-sphere Uberverse FX, kept selectable
 		// alongside V2 so the team can compare. Each is a no-op for every id but its own.
 		UberverseV1Effect.Apply(weaponRoot, itemId);
 		UberverseV12Effect.Apply(weaponRoot, itemId);
@@ -1942,7 +1942,7 @@ public static class WeaponSkinHelper
 		// exists for the [Watery] set: they bind the water shader, whose _MainTex is a normal
 		// map from Resources, so they never sample their painted PNG at all.
 		//
-		// Without this they would be hostage to art they do not use -- a missing 9022_MGWatery
+		// Without this they would be hostage to art they do not use -- a missing 2025_MGWatery
 		// PNG would return null here, this method would return before ApplyShaderOverride ever
 		// ran, and the weapon would render STOCK with the water bind never attempted. That is
 		// the same silent failure as "the code landed, the art did not" in LoadSkinFile's note,
@@ -2128,7 +2128,7 @@ public static class WeaponSkinHelper
 			// With no cubemap to reflect there is nothing meaningful for this term to say, so
 			// it is turned down to a faint cool tint instead of being left at its default.
 			// PER SKIN, not shared. This started as one hardcoded icy value because every
-			// see-through skin was blue. 9019 Bloodglass is red, and inheriting a cool tint
+			// see-through skin was blue. 2022 Bloodglass is red, and inheriting a cool tint
 			// laid a blue cast over the whole blade -- in game it read as a BLUE sword, which
 			// is the one thing that skin must not be.
 			//
@@ -2152,8 +2152,8 @@ public static class WeaponSkinHelper
 				r.material.SetColor("_ReflectColor", reflect);
 			}
 
-			// Report the VALUES, not just that a shader bound. 2026-08-17: 9020/9035 and
-			// 9021/9036 were reported as looking identical in game, and the arithmetic says they
+			// Report the VALUES, not just that a shader bound. 2026-08-17: 2023/2038 and
+			// 2024/2039 were reported as looking identical in game, and the arithmetic says they
 			// cannot be -- at this texture's mean red 0.277 the two _ReflectColor settings differ
 			// by 32/57/75 out of 255, rising to 58/111/151 at p90. "Bound shader X" was never
 			// evidence that the COLOURS landed; this line is.
@@ -2323,10 +2323,10 @@ public static class WeaponSkinHelper
 		// GetComponentsInChildren<MeshFilter>() therefore came back EMPTY on that weapon and
 		// this entire loop never executed once.
 		//
-		// That is why 9022 MG [Watery] and 9026 MG [Frosted] have shipped registered in
+		// That is why 2025 MG [Watery] and 2029 MG [Frosted] have shipped registered in
 		// SkinFlames and producing nothing whatsoever in game: not a tuning problem, not a
 		// missing sheet, the loop body simply never ran. It is also why the requested "neon
-		// aura" for 9015 Neon Circuit -- another MachineGun skin -- could not have worked: an
+		// aura" for 2018 Neon Circuit -- another MachineGun skin -- could not have worked: an
 		// aura is this overlay, and this overlay could not reach the weapon.
 		//
 		// The other four bases in this file DO have MeshFilters (SniperRifle, ShotGun and
@@ -2409,7 +2409,7 @@ public static class WeaponSkinHelper
 			if (src.transform.FindChild(FlameChildName) != null)
 				continue;
 
-			// SKIP TRIVIALLY SMALL PARTS, IN HELIX MODE ONLY. This is what makes 9020 shippable.
+			// SKIP TRIVIALLY SMALL PARTS, IN HELIX MODE ONLY. This is what makes 2023 shippable.
 			//
 			// ApplyFlames filters on "yields a mesh" and "is not particle-shaded" and nothing
 			// else, so on AWP_Roughed it finds TWO targets: the rifle (mesh AWP) and the pistol
@@ -2421,7 +2421,7 @@ public static class WeaponSkinHelper
 			// receiver, attached to nothing, at radius 0.004 over a span of 0.027.
 			//
 			// It cannot be suppressed through any existing table: SkinSleeves is keyed by ITEM ID,
-			// not by renderer, so 9020's entry applies to both parts equally. Hence a filter here.
+			// not by renderer, so 2023's entry applies to both parts equally. Hence a filter here.
 			//
 			// 15% of the weapon's longest part, and the margin is enormous rather than tuned:
 			//   AWP    1.477879   Handle 0.060465 -> 4.1%   SKIPPED
@@ -2489,7 +2489,7 @@ public static class WeaponSkinHelper
 			// which on MachineGun.prefab is a quarter turn about Y (mesh AABB centre
 			// (-0.0063, 0.0242, 0.1400) vs renderer AABB centre (-0.1400, 0.0242, -0.0063)) --
 			// a gun-shaped ghost lying crosswise through the real weapon.
-			// No skin does this today: 9020 (AWP_Roughed) and 9021 (DeathHammer) are both static
+			// No skin does this today: 2023 (AWP_Roughed) and 2024 (DeathHammer) are both static
 			// MeshRenderers. This exists so that adding a Shell skin to the MachineGun fails
 			// LOUDLY instead of shipping an effect nobody can see.
 			if (mode == FlameMode.Shell && skinned != null
@@ -2732,8 +2732,8 @@ public static class WeaponSkinHelper
 	///
 	/// WhiteVertexCopy already logs the mesh it could not copy, but a mesh name on its own does
 	/// not tell you which skin lost its fire or which weapon to look at in game -- and "the skin
-	/// is registered in SkinFlames but nothing burns" is precisely the failure that let 9022 and
-	/// 9026 ship broken and unnoticed.
+	/// is registered in SkinFlames but nothing burns" is precisely the failure that let 2025 and
+	/// 2029 ship broken and unnoticed.
 	///
 	/// Deduplicated per skin/weapon/mesh because ApplyToWeapon runs on every equip and every
 	/// respawn, for every player in the room.
@@ -2763,8 +2763,8 @@ public static class WeaponSkinHelper
 	// and with nothing in the log to say so.
 	//
 	// Not hypothetical any more. Five prefabs share one AWP mesh GUID (AWP_Roughed, AWP_Black,
-	// AWP_Camo, AWP_Pimp, AWP-Snake), so a second AWP helix skin lands straight on it, and 9017's
-	// katana is likewise shared by 9018/9019 (Surface today -- but a mode change is one word).
+	// AWP_Camo, AWP_Pimp, AWP-Snake), so a second AWP helix skin lands straight on it, and 2020's
+	// katana is likewise shared by 2021/2022 (Surface today -- but a mode change is one word).
 	//
 	// A composite string rather than a nested dictionary because Mesh has no value equality and
 	// GetInstanceID is stable for the object's lifetime, which is exactly the cache's lifetime.
@@ -3262,7 +3262,7 @@ public static class WeaponSkinHelper
 		//   MuzzleFlash -- its material's _TintColor.ALPHA is driven by a legacy Animation on the
 		//     SHARED material asset. Touching `.material` clones it frozen at whatever alpha the
 		//     clip last wrote, which is 0 after Hide(), so the flash renders as NOTHING. That is
-		//     exactly the regression commit 63a9776 fixed, and DeathHammer (9021 Icebreaker) is
+		//     exactly the regression commit 63a9776 fixed, and DeathHammer (2024 Icebreaker) is
 		//     the weapon that has one. Its light still tints; its flash is left stock on purpose.
 		//   MuzzleSmoke -- blue smoke reads as a bug rather than as a skin.
 		if (spec.HasParticles)
