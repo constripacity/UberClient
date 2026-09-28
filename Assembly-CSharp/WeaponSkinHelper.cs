@@ -41,7 +41,7 @@
 //   2030 Sniper [Frosted]  (base 1004 PaintSniper)
 //   2031 Shotgun [Frosted] (base 1003 PaintShotty)
 //   2032 Cannon [Frosted]  (base 1005 Cannon)
-//   2033 MG [Lava]         (base 1002 MachineGun)   -- the [Lava] set: same water shader and the
+//   2033 MG [Lava]         (base 1002 MachineGun)   -- the [Lava] set: half-flow water shader and the
 //   2034 Sniper [Lava]     (base 1004 PaintSniper)     same four water textures as [Watery],
 //   2035 Shotgun [Lava]    (base 1003 PaintShotty)     three colours apart. NO painted art and
 //   2036 Cannon [Lava]     (base 1005 Cannon)          NO flames -- see LavaBindings.
@@ -210,6 +210,7 @@ public static partial class WeaponSkinHelper
 	// 0.07 off the shader's own time input, so the water flows with NO MonoBehaviour driving it
 	// -- unlike the flame overlay, which needs WeaponFlameAnimator.
 	public const string WaterShader = "CMune/Water/Opaque_Flowing";
+	public const string LavaShader  = "CMune/Lava/Opaque_Flowing";  // water at half scroll, built at runtime (2033-2036)
 
 	// Resources paths for the water assets, in the LOWERCASE form the build's index actually
 	// stores. This client keeps its Resources index in UberStrike_Data/mainData, and every
@@ -426,14 +427,12 @@ public static partial class WeaponSkinHelper
 
 	/// <summary>
 	/// The [Lava] material -- "moltencore", ids 2033-2036. Same shader as [Watery], same four
-	/// textures, THREE COLOURS APART. Nothing else differs, and that is the whole design.
+	/// textures, THREE COLOURS APART, half scroll speed.
 	///
 	/// It works because _MainTex on this shader is a NORMAL MAP, not albedo (see WaterBindings).
 	/// The colour of the surface comes entirely from _Color, _WaterColor_Dark and _ReflectColor,
 	/// so re-tinting those three turns the same flowing liquid from water into molten rock
-	/// without touching a single texel. The motion, the caustics and the cubemap highlight are
-	/// unchanged and still free -- the compiled program scrolls _MainTex and _BumpMap off its own
-	/// time input, with no MonoBehaviour driving it.
+	/// without touching a single texel. Scroll runs at half speed via LavaShader.
 	///
 	/// The three colours, as authored by the user:
 	///   _Color            #000000  (0, 0, 0)                    -- black rock between the cracks
@@ -1095,6 +1094,39 @@ public static partial class WeaponSkinHelper
 		ApplyFlames(weaponRoot, itemId);
 	}
 
+	private static Material _lavaMaterial;
+	private static bool _lavaTried;
+
+	// Retail build has no lava shader: embedded compiled water text, scroll consts halved.
+	private static Shader FindShader(string name)
+	{
+		Shader s = Shader.Find(name);
+		if (s != null || name != LavaShader) return s;
+		if (_lavaMaterial != null) return _lavaMaterial.shader;
+		if (_lavaTried) return null;
+		_lavaTried = true;
+		byte[] text = ReadEmbedded("Lava_Flowing_A.shader");
+		if (text == null) return null;
+		try
+		{
+			Material m = new Material(System.Text.Encoding.ASCII.GetString(text).Replace("\r\n", "\n"));
+			if (m.shader == null || m.shader.name != LavaShader || !m.shader.isSupported)
+			{
+				Debug.LogError("WeaponSkinHelper: runtime lava shader rejected; using water");
+				return null;
+			}
+			m.hideFlags = HideFlags.DontSave;
+			m.shader.hideFlags = HideFlags.DontSave;
+			_lavaMaterial = m;
+			return m.shader;
+		}
+		catch (Exception e)
+		{
+			Debug.LogError("WeaponSkinHelper: runtime lava shader failed: " + e.Message);
+			return null;
+		}
+	}
+
 	/// <summary>
 	/// Swap this renderer's shader, and assign whatever material state the new shader needs.
 	///
@@ -1123,7 +1155,7 @@ public static partial class WeaponSkinHelper
 		string how = null;
 		for (int i = 0; i < candidates.Length; i++)
 		{
-			s = Shader.Find(candidates[i]);
+			s = FindShader(candidates[i]);
 			if (s != null)
 			{
 				how = "Shader.Find('" + candidates[i] + "')"

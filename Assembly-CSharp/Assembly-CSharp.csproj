@@ -1369,6 +1369,9 @@
     <EmbeddedResource Include="WeaponSkins\2075_LauncherDragonsMaw_Icon.png">
       <LogicalName>WeaponSkins.2075_LauncherDragonsMaw_Icon.png</LogicalName>
     </EmbeddedResource>
+    <EmbeddedResource Include="WeaponSkins\Lava_Flowing_A.shader">
+      <LogicalName>WeaponSkins.Lava_Flowing_A.shader</LogicalName>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
