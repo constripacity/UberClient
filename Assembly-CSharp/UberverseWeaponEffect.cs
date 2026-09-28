@@ -9,13 +9,11 @@ public sealed class UberverseWeaponEffect : MonoBehaviour
 {
     // Next unused ID after PR #8's retired 9068-9078 range. Catalog must use this same ID.
     public const int ItemId = 2067;
-    // Death Hammer [Galaxy] (2076) reuses this same orbital aura; it has no "AWP" mesh, so it anchors
-    // to the weapon's largest body mesh and Initialize scales the system to those bounds.
     public const int ItemIdDeathHammer = 2076;
     public const string RootName = "Uberverse_OrbitalSystem";
-    private const int PlanetCount = 6;  // array MAX (AWP shows 3, Death Hammer 6: five orbs + Saturn)
+    private const int PlanetCount = 6;  // max; AWP uses 3
     private const int RibbonSegments = 64;
-    private const int SpriteCount = 96; // AWP sprite capacity (36 active); Death Hammer sizes its own (GalaxySprites)
+    private const int SpriteCount = 96; // AWP capacity
     // Gemini/Nano-Banana baked planet orbs, embedded as WeaponSkins.<name> in the csproj.
     // Additive billboards replace the old procedural spheres: image quality, no shimmer.
     private static readonly string[] PlanetTextures = { "planet_violet.png", "planet_magenta.png", "planet_blue.png" };
@@ -25,7 +23,7 @@ public sealed class UberverseWeaponEffect : MonoBehaviour
     private readonly Mesh[] planetMeshes = new Mesh[PlanetCount];
     private readonly Vector3[] planetQuad = new Vector3[4]; // scratch for one billboard rebuild
     private readonly Vector3[] planetPositions = new Vector3[PlanetCount];
-    private Vector3[] spritePositions; // sized spriteCapacity in Initialize
+    private Vector3[] spritePositions;
     private float[] spriteSizes;
     private Color[] spriteColours;
     private static readonly Color Gold = new Color(1f, .65f, .20f, 1f);
@@ -43,25 +41,20 @@ public sealed class UberverseWeaponEffect : MonoBehaviour
     private float scale;
     private Vector3 anchor;
     private bool ready;
-    private int activeSprites = 36;  // 36 AWP (tight); GalaxySprites on the Death Hammer
+    private int activeSprites = 36;
     private int spriteCapacity = SpriteCount;
-    private int activePlanets = 3;   // 3 AWP; 6 Death Hammer
-    private int goldThreads = 0;     // 0 AWP; GalaxyStreaks filigree streaks on the Death Hammer
-    private int ribbonStrips;        // sized in Initialize
-    private float zSpread = 0f;       // 0 = AWP orbital cluster; >0 = Death Hammer [Galaxy] (AnimateGalaxy)
-    private Vector3 bodyCenter, bodyHalf; // gun bounds centre/half-extents (Death Hammer surface profile)
+    private int activePlanets = 3;
+    private int goldThreads = 0;
+    private int ribbonStrips;
+    private float zSpread = 0f;       // >0 = Death Hammer mode
+    private Vector3 bodyCenter, bodyHalf;
 
-    // ---- Death Hammer [Galaxy] (zSpread > 0) ----
-    private const int GalaxySprites = 128; // 6 planet atmospheres + GalaxyHaze aura + the rest 4-point sparkles
+    // Death Hammer [Galaxy]
+    private const int GalaxySprites = 128;
     private const int GalaxyHaze = 14;
-    private const int GalaxyStreaks = 7;   // crest, 2 stock faces, 2 barrel flanks, muzzle wrap, forend-front wrap
-    private const int GalaxySaturn = 2;    // the ringed orb, largest, mid-gun above the forend
-    // Cross-section of the Death_Hammer mesh (2453 verts, skin-studio export), ray-sampled every 5% of
-    // its length, breech -> muzzle, as fractions of its bounds: top/bottom of the y range, half-width of
-    // x. Stock 0-.27 (lens section), receiver .30-.53 (box, top rail .37-.53), side-by-side DOUBLE
-    // barrel from .41 to the muzzle (tubes at x = +-.45 half-width, y = .758, r = .0295), pump side +
-    // top plates .62-.80, magazine tube below to .83, thin tube to .92. Streaks, aura and sparkles sit
-    // on this surface instead of the bounding box.
+    private const int GalaxyStreaks = 7;
+    private const int GalaxySaturn = 2;    // ringed orb index
+    // Mesh profile, 5% steps breech->muzzle, fractions of bounds.
     private static readonly float[] GalaxyTop = {
         .541f, .559f, .559f, .559f, .498f, .555f, .732f, .965f, .965f, .965f, .965f,
         .930f, .861f, .917f, .917f, .917f, .917f, .883f, .883f, .883f, .883f };
@@ -71,13 +64,13 @@ public sealed class UberverseWeaponEffect : MonoBehaviour
     private static readonly float[] GalaxyHalfW = {
         .279f, .337f, .352f, .352f, .323f, .323f, .455f, .513f, .777f, .777f, .777f,
         .821f, 1f, 1f, 1f, 1f, 1f, .880f, .880f, .880f, .880f };
-    private const float GalaxyBarrelAxis = .758f; // y of both barrel axes (the muzzle flash sits there), fraction of the y range
-    private const float GalaxyBarrelX = .45f;     // x of each barrel axis, fraction of the half-width
-    private const float GalaxyWrapCentre = .658f; // centre of barrels + thin tube, for the forend-front wrap
+    private const float GalaxyBarrelAxis = .758f;
+    private const float GalaxyBarrelX = .45f;
+    private const float GalaxyWrapCentre = .658f;
     private static readonly float[] GalaxyPlanetT = { .12f, .18f, .55f, .78f, .93f, .42f };
-    private static readonly float[] GalaxyPlanetLift = { .045f, -.050f, .080f, -.045f, .045f, .065f }; // +above crest / -below belly
+    private static readonly float[] GalaxyPlanetLift = { .045f, -.050f, .080f, -.045f, .045f, .065f }; // + above crest, - below belly
     private static readonly float[] GalaxyPlanetRadius = { .010f, .0085f, .017f, .0090f, .0080f, .0075f };
-    private static readonly int[] GalaxyPlanetTex = { 0, 1, 0, 2, 1, 0 }; // purple worlds; one blue-violet
+    private static readonly int[] GalaxyPlanetTex = { 0, 1, 0, 2, 1, 0 };
     private static readonly Color[] GalaxyHazePalette = {
         new Color(.45f, .18f, 1f), new Color(.78f, .20f, .85f), new Color(.32f, .36f, 1f)
     };
@@ -111,9 +104,7 @@ public sealed class UberverseWeaponEffect : MonoBehaviour
         }
         if (!mine || retained) return;
 
-        // 2067 AWP anchors to the measured static body mesh named "AWP" (its scope included; never Handle,
-        // an animation mesh, or a muzzle renderer). 2076 Death Hammer has no "AWP" mesh, so pick the
-        // largest body mesh (skipping obvious non-body renderers); Initialize scales the system to it.
+        // AWP: mesh named "AWP". Death Hammer: largest body mesh.
         string wantName = (itemId == ItemId) ? "AWP" : null;
         MeshFilter chosen = null;
         float bestVolume = -1f;
@@ -177,8 +168,6 @@ public sealed class UberverseWeaponEffect : MonoBehaviour
         anchor = new Vector3(bounds.center.x, bounds.max.y + .045f * scale,
             bounds.min.z + bounds.size.z * .39f);
         bodyCenter = bounds.center; bodyHalf = bounds.extents;
-        // AWP: full ring + tail per planet, one Saturn ring. Galaxy: tail per planet, two Saturn bands,
-        // glow + core strip per filigree streak.
         ribbonStrips = zSpread > 0f ? activePlanets + 2 + goldThreads * 2 : activePlanets * 2 + 1 + goldThreads;
         spritePositions = new Vector3[spriteCapacity];
         spriteSizes = new float[spriteCapacity];
@@ -205,7 +194,7 @@ public sealed class UberverseWeaponEffect : MonoBehaviour
         }
         Material glow = Keep(new Material(additive));
         glow.name = "Uberverse_Nebula";
-        glow.mainTexture = Keep(zSpread > 0f ? BuildGalaxyAtlas() : BuildFalloff(false)); // star | halo atlas on the Death Hammer
+        glow.mainTexture = Keep(zSpread > 0f ? BuildGalaxyAtlas() : BuildFalloff(false));
         if (glow.HasProperty("_TintColor")) glow.SetColor("_TintColor", new Color(.5f, .5f, .5f, .5f));
         Material gold = Keep(new Material(additive));
         gold.name = "Uberverse_OrbitGold";
@@ -220,7 +209,7 @@ public sealed class UberverseWeaponEffect : MonoBehaviour
         sprites = Keep(NewQuadMesh(spriteCapacity, out spriteVertices, out spriteVertexColours));
         if (zSpread > 0f)
         {
-            // Atlas halves: planet atmospheres + aura haze take the soft halo (right), sparkles the star (left).
+            // Halos use right atlas half, sparkles left.
             Vector2[] uv = sprites.uv;
             int halos = activePlanets + GalaxyHaze;
             for (int i = 0; i < spriteCapacity; i++)
@@ -288,7 +277,7 @@ public sealed class UberverseWeaponEffect : MonoBehaviour
         return anchor + p + new Vector3(0f, i * .015f * scale, (i - 1) * .015f * scale);
     }
 
-    // ---- Death Hammer [Galaxy] surface helpers: t = 0 breech .. 1 muzzle ----
+    // t: 0 breech .. 1 muzzle
     private static float Sample(float[] table, float t)
     {
         float f = Mathf.Clamp01(t) * (table.Length - 1);
@@ -308,7 +297,6 @@ public sealed class UberverseWeaponEffect : MonoBehaviour
         return v - Mathf.Floor(v);
     }
 
-    // Each orb sways on a small ellipse about its own spot: above the crest or below the belly.
     private Vector3 GalaxyOrbit(int i, float angle)
     {
         float t = GalaxyPlanetT[i], lift = GalaxyPlanetLift[i];
@@ -317,11 +305,7 @@ public sealed class UberverseWeaponEffect : MonoBehaviour
             cy + Mathf.Sin(angle) * .010f * scale, GalaxyZ(t) + Mathf.Sin(angle) * .025f * scale);
     }
 
-    // Filigree streak k at s (0..1), lying on the measured surface. 0: crest, receiver -> muzzle (rail-
-    // width weave over the receiver, barrel-to-barrel over the double barrel). 1/2: lightning across
-    // each stock face. 3/4: each flank, on the receiver box then along the outer barrel equator / pump
-    // plates. 5: 1.5 turns around both barrels near the muzzle. 6: one turn around barrels + thin tube
-    // just in front of the forend. Wraps are ellipses enclosing both tubes, not a single-barrel circle.
+    // k: 0 crest, 1-2 stock faces, 3-4 flanks, 5-6 barrel wraps.
     private Vector3 Streak(int k, float s)
     {
         float t, x, y, w;
@@ -460,8 +444,6 @@ public sealed class UberverseWeaponEffect : MonoBehaviour
         }
     }
 
-    // Death Hammer [Galaxy]: gold filigree on the gun's measured surface, dense 4-point sparkles, a soft
-    // purple aura, six purple orbs with gold wisp tails, and a two-band gold Saturn. Concept-matched.
     private void AnimateGalaxy(double time)
     {
         int quad = 0;
@@ -469,7 +451,6 @@ public sealed class UberverseWeaponEffect : MonoBehaviour
         {
             float phase = Phase(time, .10 + i * .05, i * 2.094395);
             planetPositions[i] = GalaxyOrbit(i, phase);
-            // Gold wisp trailing the orb: bold at the head, fading to a fine tail.
             for (int j = 0; j < RibbonSegments; j++)
             {
                 float t = j / (float)RibbonSegments;
@@ -482,7 +463,6 @@ public sealed class UberverseWeaponEffect : MonoBehaviour
             spriteSizes[i] = PlanetRadius(i) * 2.7f;
             spriteColours[i] = WithAlpha(Color.Lerp(Palette[GalaxyPlanetTex[i]], Cyan, .20f), .14f);
         }
-        // Saturn: bright inner band, paler outer band, a gap between.
         Quaternion tilt = Quaternion.Euler(24f, 0f, -22f);
         Vector3 saturn = planetPositions[GalaxySaturn];
         for (int band = 0; band < 2; band++)
@@ -499,7 +479,6 @@ public sealed class UberverseWeaponEffect : MonoBehaviour
                 RibbonQuad(quad++, saturn + p, saturn + q, width, colour);
             }
         }
-        // Filigree: a wide soft glow under a bright core, with pulses of light running along each streak.
         for (int k = 0; k < goldThreads; k++)
         {
             float run = Phase(time, 3.0, k * 1.3);
@@ -527,8 +506,6 @@ public sealed class UberverseWeaponEffect : MonoBehaviour
             int n = i - activePlanets;
             if (i < hazeEnd)
             {
-                // Nebula aura: soft halos centred in the body, spaced along it; the gun occludes the inner
-                // half so only the outer glow shows. Drifts slowly.
                 float wave = .5f + .5f * Mathf.Sin(Phase(time, .30, n * 1.3));
                 float t = (n + .5f) / GalaxyHaze + .02f * Mathf.Sin(Phase(time, .25, n * 2.1));
                 float top = GalaxyY(GalaxyTop, t), bottom = GalaxyY(GalaxyBottom, t);
@@ -539,8 +516,6 @@ public sealed class UberverseWeaponEffect : MonoBehaviour
             }
             else
             {
-                // Sparkles: 4-point stars on a shell just outside the surface, all along the gun, in three
-                // sizes; gold / warm white / violet; each glints with its own rhythm and creeps around the gun.
                 int m = i - hazeEnd;
                 float t = Hash(m, .7548777f);
                 float theta = Phase(time, .05 + .03 * (m % 3), Hash(m, .5698403f) * 6.2832f);
@@ -655,16 +630,13 @@ public sealed class UberverseWeaponEffect : MonoBehaviour
             indices[t + 3] = v; indices[t + 4] = v + 2; indices[t + 5] = v + 3;
         }
         mesh.vertices = vertices; mesh.uv = uv; mesh.colors = colours; mesh.triangles = indices;
-        // All motion is bounded; do not read geometry or recalculate bounds each frame. The spread
-        // Death Hammer system runs the whole gun, so its bounds must be larger or the far end culls.
+        // Fixed bounds, no per-frame recalc. Death Hammer spans whole gun: bigger box.
         mesh.bounds = new Bounds(anchor + Vector3.forward * .12f * scale,
             Vector3.one * (zSpread > 0f ? 2.7f : 1.5f) * scale);
         return mesh;
     }
 
-    // Death Hammer sprite atlas, 128x64. Left: 4-point twinkle (tight core, soft bloom, thin tapered rays).
-    // Right: the soft halo. One material draws both; each quad picks a half by UV. Both halves are
-    // transparent at the seam, so mips cannot bleed anything visible across.
+    // 128x64: left 4-point star, right soft halo.
     private static Texture2D BuildGalaxyAtlas()
     {
         const int size = 64;
